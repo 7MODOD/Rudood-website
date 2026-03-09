@@ -955,7 +955,12 @@ function WaitlistSection() {
                   </button>
 
                   <p className="text-center text-slate-500 text-xs mt-3">
-                    بالتسجيل توافق على <Link href="/privacy" className="text-purple-400 hover:underline">سياسة الخصوصية</Link>
+                    بالتسجيل توافق على{" "}
+                    <Link href="/privacy" className="text-purple-400 hover:underline">سياسة الخصوصية</Link>
+                    {" "}·{" "}
+                    <Link href="/terms" className="text-purple-400 hover:underline">شروط الخدمة</Link>
+                    {" "}·{" "}
+                    <Link href="/data-deletion" className="text-purple-400 hover:underline">حذف البيانات</Link>
                   </p>
                 </form>
               </>
@@ -1073,6 +1078,12 @@ function Footer() {
           <div className="flex flex-wrap items-center gap-6 text-sm">
             <Link href="/privacy" className="text-slate-400 hover:text-white transition-colors duration-200 font-medium">
               سياسة الخصوصية
+            </Link>
+            <Link href="/terms" className="text-slate-400 hover:text-white transition-colors duration-200 font-medium">
+              شروط الخدمة
+            </Link>
+            <Link href="/data-deletion" className="text-slate-400 hover:text-white transition-colors duration-200 font-medium">
+              حذف البيانات
             </Link>
             <a
               href="mailto:info@rudood.com"

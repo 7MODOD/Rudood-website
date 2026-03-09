@@ -229,15 +229,13 @@ We aim to respond to all inquiries within 48 business hours.`,
           </a>
         </div>
 
-        {/* Footer nav */}
-        <div className="mt-10 text-center">
-          <Link
-            href="/en"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-slate-400 hover:text-white border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all duration-200 font-semibold"
-          >
-            <ArrowLeft size={18} />
-            Back to Home
-          </Link>
+        {/* Footer links */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4 text-sm text-slate-500">
+          <Link href="/en/terms" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
+          <span>•</span>
+          <Link href="/en/data-deletion" className="hover:text-slate-300 transition-colors">Data Deletion</Link>
+          <span>•</span>
+          <Link href="/en" className="hover:text-slate-300 transition-colors">Home</Link>
         </div>
 
         <p className="text-center text-slate-600 text-sm mt-8">

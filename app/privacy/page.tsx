@@ -245,15 +245,13 @@ export default function PrivacyPage() {
           </a>
         </div>
 
-        {/* Footer nav */}
-        <div className="mt-10 text-center">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-slate-400 hover:text-white border border-white/10 hover:border-white/20 hover:bg-white/5 transition-all duration-200 font-semibold"
-          >
-            <ArrowRight size={18} />
-            العودة إلى الصفحة الرئيسية
-          </Link>
+        {/* Footer links */}
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4 text-sm text-slate-500">
+          <Link href="/terms" className="hover:text-slate-300 transition-colors">شروط الخدمة</Link>
+          <span>•</span>
+          <Link href="/data-deletion" className="hover:text-slate-300 transition-colors">حذف البيانات</Link>
+          <span>•</span>
+          <Link href="/" className="hover:text-slate-300 transition-colors">الرئيسية</Link>
         </div>
 
         {/* Footer copyright */}

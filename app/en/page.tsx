@@ -736,7 +736,12 @@ function WaitlistSection() {
                   </button>
 
                   <p className="text-center text-slate-500 text-xs mt-3">
-                    By signing up you agree to our <Link href="/en/privacy" className="text-purple-400 hover:underline">Privacy Policy</Link>
+                    By signing up you agree to our{" "}
+                    <Link href="/en/privacy" className="text-purple-400 hover:underline">Privacy Policy</Link>
+                    {" "}·{" "}
+                    <Link href="/en/terms" className="text-purple-400 hover:underline">Terms of Service</Link>
+                    {" "}·{" "}
+                    <Link href="/en/data-deletion" className="text-purple-400 hover:underline">Data Deletion</Link>
                   </p>
                 </form>
               </>
@@ -840,6 +845,12 @@ function Footer() {
           <div className="flex flex-wrap items-center gap-6 text-sm">
             <Link href="/en/privacy" className="text-slate-400 hover:text-white transition-colors duration-200 font-medium">
               Privacy Policy
+            </Link>
+            <Link href="/en/terms" className="text-slate-400 hover:text-white transition-colors duration-200 font-medium">
+              Terms of Service
+            </Link>
+            <Link href="/en/data-deletion" className="text-slate-400 hover:text-white transition-colors duration-200 font-medium">
+              Data Deletion
             </Link>
             <a href="mailto:info@rudood.com" className="text-slate-400 hover:text-white transition-colors duration-200 font-medium">
               info@rudood.com
