@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#1E40AF"/>
+      <stop offset="45%"  stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer arc of R -->
+  <path d="M40 20 L40 180 M40 20 C40 20 140 20 140 70 C140 120 90 110 90 110 L40 110"
+        stroke="url(#brandGrad)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Leg of R -->
+  <path d="M90 110 L155 180"
+        stroke="url(#brandGrad)" stroke-width="28" stroke-linecap="round" fill="none"/>
+  <!-- Arrow inside counter -->
+  <circle cx="78" cy="75" r="5" fill="#22D3EE"/>
+  <path d="M83 75 L110 75" stroke="#22D3EE" stroke-width="3" stroke-linecap="round"/>
+  <path d="M105 70 L112 75 L105 80" stroke="#22D3EE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

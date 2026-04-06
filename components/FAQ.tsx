@@ -35,7 +35,7 @@ export default function FAQ() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-14">
-          <p className="text-gold text-sm font-semibold uppercase tracking-widest mb-3">
+          <p className="text-cyan text-sm font-semibold uppercase tracking-widest mb-3">
             الأسئلة الشائعة
           </p>
           <h2 className="text-3xl sm:text-4xl font-black text-text-primary mb-4">
@@ -54,7 +54,7 @@ export default function FAQ() {
               <div
                 key={i}
                 className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                  isOpen ? "border-gold/40 bg-surface-2" : "border-border bg-surface-2/50 hover:border-gold/20"
+                  isOpen ? "border-primary/40 bg-surface-2" : "border-border bg-surface-2/50 hover:border-primary/20"
                 }`}
               >
                 <button
@@ -62,13 +62,13 @@ export default function FAQ() {
                   className="w-full flex items-center justify-between gap-4 px-6 py-5 text-start"
                   aria-expanded={isOpen}
                 >
-                  <span className={`text-base font-semibold transition-colors duration-200 ${isOpen ? "text-gold" : "text-text-primary"}`}>
+                  <span className={`text-base font-semibold transition-colors duration-200 ${isOpen ? "text-cyan" : "text-text-primary"}`}>
                     {item.q}
                   </span>
                   <span
                     className={`shrink-0 w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-300 ${
                       isOpen
-                        ? "border-gold/40 bg-gold/10 text-gold rotate-45"
+                        ? "border-primary/40 bg-primary/10 text-cyan rotate-45"
                         : "border-border text-text-muted"
                     }`}
                   >

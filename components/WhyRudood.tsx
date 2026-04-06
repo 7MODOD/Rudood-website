@@ -49,9 +49,9 @@ const features = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    title: "متاح 24/7 بلا انقطاع",
+    title: "متاح 24/7 على كل المنصات",
     description:
-      "يعمل طوال الليل والنهار، في الأعياد والعطل، دون توقف. عميلك يحصل على رد فوري في أي وقت.",
+      "يعمل على واتساب وإنستغرام وماسنجر طوال الليل والنهار، في الأعياد والعطل، دون توقف.",
     highlight: "دائماً",
   },
   {
@@ -84,7 +84,7 @@ export default function WhyRudood() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="text-gold text-sm font-semibold uppercase tracking-widest mb-3">
+          <p className="text-cyan text-sm font-semibold uppercase tracking-widest mb-3">
             لماذا ردود؟
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-text-primary mb-4">
@@ -115,7 +115,7 @@ export default function WhyRudood() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-4">
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold/40"></div>
-            <p className="text-gold font-bold text-lg">الحل مع ردود</p>
+            <p className="text-cyan font-bold text-lg">الحل مع ردود</p>
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold/40"></div>
           </div>
         </div>
@@ -125,14 +125,14 @@ export default function WhyRudood() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="relative p-6 rounded-2xl border border-border bg-surface-2 hover:border-gold/40 transition-all duration-300 group cursor-default"
+              className="relative p-6 rounded-2xl border border-border bg-surface-2 hover:border-primary/40 transition-all duration-300 group cursor-default"
             >
               {/* Highlight badge */}
-              <div className="absolute top-4 end-4 text-xs font-bold text-gold bg-gold/10 px-2 py-0.5 rounded-full border border-gold/20">
+              <div className="absolute top-4 end-4 text-xs font-bold text-cyan bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20">
                 {feature.highlight}
               </div>
 
-              <div className="w-12 h-12 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center text-gold mb-4 group-hover:bg-gold/15 group-hover:scale-110 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-cyan mb-4 group-hover:bg-primary/15 group-hover:scale-110 transition-all">
                 {feature.icon}
               </div>
               <h3 className="text-base font-bold text-text-primary mb-2">{feature.title}</h3>

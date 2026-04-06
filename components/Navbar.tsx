@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import Logo from "./Logo";
 
 const navLinks = [
   { label: "لماذا ردود؟", href: "#why" },
   { label: "كيف نعمل؟", href: "#how" },
-  { label: "أمثلة حية", href: "#cases" },
+  { label: "المنصات", href: "#platforms" },
   { label: "الأسعار", href: "#pricing" },
   { label: "الأسئلة الشائعة", href: "#faq" },
 ];
@@ -18,12 +20,9 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <span className="text-2xl font-black text-text-primary tracking-tight group-hover:text-gold transition-colors duration-200">
-              ردود
-            </span>
-            <span className="w-2 h-2 rounded-full bg-gold animate-pulse-ring"></span>
-          </a>
+          <Link href="/" className="hover:opacity-80 transition-opacity">
+            <Logo size={36} showText={true} lang="ar" />
+          </Link>
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-6">
@@ -38,11 +37,17 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* Right side: Lang toggle + CTA */}
           <div className="hidden md:flex items-center gap-3">
+            <Link
+              href="/en"
+              className="px-3 py-1.5 text-xs font-semibold rounded-full border border-border text-text-muted hover:text-text-primary hover:border-border-light transition-all"
+            >
+              EN
+            </Link>
             <a
-              href="#pricing"
-              className="px-5 py-2 rounded-full bg-gold text-night text-sm font-bold hover:bg-gold-light transition-all duration-200 shadow-gold-sm hover:shadow-gold"
+              href="#contact"
+              className="px-5 py-2 rounded-full bg-brand-gradient text-white text-sm font-bold hover:opacity-90 transition-all duration-200 shadow-brand-sm"
             >
               ابدأ الآن
             </a>
@@ -80,11 +85,17 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <div className="pt-3 px-4">
+              <div className="pt-3 px-4 flex gap-2">
+                <Link
+                  href="/en"
+                  className="px-4 py-2 rounded-full border border-border text-text-muted text-sm"
+                >
+                  English
+                </Link>
                 <a
-                  href="#pricing"
+                  href="#contact"
                   onClick={() => setMenuOpen(false)}
-                  className="block w-full text-center px-5 py-3 rounded-full bg-gold text-night text-sm font-bold hover:bg-gold-light transition-all"
+                  className="flex-1 text-center px-5 py-3 rounded-full bg-brand-gradient text-white text-sm font-bold"
                 >
                   ابدأ الآن
                 </a>

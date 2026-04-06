@@ -18,7 +18,7 @@ const tiers: PricingTier[] = [
     period: "شهرياً",
     messages: "حتى 1,500 رسالة",
     features: [
-      "رد ذكي على واتساب",
+      "رد ذكي على واتساب وإنستغرام وماسنجر",
       "تدريب على بيانات متجرك",
       "دعم فني عبر البريد",
       "تقارير شهرية",
@@ -42,7 +42,7 @@ const tiers: PricingTier[] = [
     ],
     cta: "ابدأ بالأعمال",
     isPopular: true,
-    priceColor: "text-gold",
+    priceColor: "text-gradient-brand",
   },
   {
     name: "VIP المخصصة",
@@ -59,11 +59,11 @@ const tiers: PricingTier[] = [
       "تدريب مستمر وتحسين",
     ],
     cta: "تواصل معنا",
-    priceColor: "text-teal",
+    priceColor: "text-cyan",
   },
 ];
 
-function CheckIcon({ color = "text-teal" }: { color?: string }) {
+function CheckIcon({ color = "text-cyan" }: { color?: string }) {
   return (
     <svg className={`w-4 h-4 ${color} shrink-0`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -77,7 +77,7 @@ export default function Pricing() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-6">
-          <p className="text-gold text-sm font-semibold uppercase tracking-widest mb-3">
+          <p className="text-cyan text-sm font-semibold uppercase tracking-widest mb-3">
             خطط الأسعار
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-text-primary mb-4">
@@ -90,11 +90,11 @@ export default function Pricing() {
 
         {/* Setup Fee Banner */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-gold/30 bg-gold/5 text-sm">
-            <span className="text-gold text-base">⚡</span>
+          <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-primary/30 bg-primary/5 text-sm">
+            <span className="text-cyan text-base">⚡</span>
             <span className="text-text-muted">
               رسوم تأسيس لمرة واحدة:{" "}
-              <span className="text-gold font-bold" dir="ltr">$100</span>
+              <span className="text-cyan font-bold" dir="ltr">$100</span>
               {" "}— تشمل التدريب والربط التقني الكامل
             </span>
           </div>
@@ -107,17 +107,17 @@ export default function Pricing() {
               key={tier.name}
               className={`relative rounded-3xl p-7 flex flex-col gap-6 transition-all duration-300 ${
                 tier.isPopular
-                  ? "bg-surface-2 border-2 border-gold/50 scale-[1.03] shadow-gold"
-                  : "bg-surface border border-border hover:border-gold/30"
+                  ? "bg-surface-2 border-2 border-primary/50 scale-[1.03] shadow-brand"
+                  : "bg-surface border border-border hover:border-primary/30"
               }`}
             >
               {/* Popular badge */}
               {tier.isPopular && (
                 <div className="absolute -top-4 inset-x-0 flex justify-center">
                   <div
-                    className="px-4 py-1.5 rounded-full text-night text-xs font-black tracking-wide animate-shimmer"
+                    className="px-4 py-1.5 rounded-full text-white text-xs font-black tracking-wide animate-shimmer"
                     style={{
-                      background: "linear-gradient(90deg, #D4A843, #F0C96A, #D4A843, #F0C96A)",
+                      background: "linear-gradient(90deg, #2563EB, #7C3AED, #06B6D4, #2563EB)",
                       backgroundSize: "200% auto",
                     }}
                   >
@@ -153,8 +153,8 @@ export default function Pricing() {
                 href={tier.name === "VIP المخصصة" ? "https://wa.me/your-number" : "#contact"}
                 className={`block text-center px-6 py-3.5 rounded-full font-bold text-base transition-all duration-200 ${
                   tier.isPopular
-                    ? "bg-gold text-night hover:bg-gold-light shadow-gold-sm hover:shadow-gold"
-                    : "border border-border text-text-muted hover:text-text-primary hover:border-gold/40"
+                    ? "bg-brand-gradient text-white hover:opacity-90 shadow-brand-sm"
+                    : "border border-border text-text-muted hover:text-text-primary hover:border-primary/40"
                 }`}
               >
                 {tier.cta}
@@ -164,7 +164,7 @@ export default function Pricing() {
               <div className="space-y-3 pt-2 border-t border-border">
                 {tier.features.map((f) => (
                   <div key={f} className="flex items-center gap-3">
-                    <CheckIcon color={tier.isPopular ? "text-gold" : "text-teal"} />
+                    <CheckIcon color={tier.isPopular ? "text-cyan" : "text-cyan"} />
                     <span className="text-text-muted text-sm">{f}</span>
                   </div>
                 ))}

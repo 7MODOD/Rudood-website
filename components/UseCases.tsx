@@ -41,7 +41,7 @@ const scenarios: Record<string, Scenario> = {
     ],
     callouts: [
       { title: "رد في ثانية", desc: "فهم السؤال وأجاب فوراً في أي وقت", color: "text-teal" },
-      { title: "فهم السياق", desc: "يتذكر تفاصيل المحادثة ويبني عليها", color: "text-gold" },
+      { title: "فهم السياق", desc: "يتذكر تفاصيل المحادثة ويبني عليها", color: "text-gradient-brand" },
       { title: "يُغلق الصفقة", desc: "يقترح الخطوة التالية تلقائياً", color: "text-teal" },
     ],
   },
@@ -70,7 +70,7 @@ const scenarios: Record<string, Scenario> = {
     ],
     callouts: [
       { title: "تحقق تلقائي", desc: "تحقق من منطقة التوصيل دون تدخل بشري", color: "text-teal" },
-      { title: "يحفظ التفاصيل", desc: "يربط الموقع بسياسة التوصيل نفسه", color: "text-gold" },
+      { title: "يحفظ التفاصيل", desc: "يربط الموقع بسياسة التوصيل نفسه", color: "text-gradient-brand" },
       { title: "يعرض القائمة", desc: "يجيب على أسئلة المنيو بدقة وسرعة", color: "text-teal" },
     ],
   },
@@ -111,7 +111,7 @@ export default function UseCases() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <p className="text-gold text-sm font-semibold uppercase tracking-widest mb-3">
+          <p className="text-gradient-brand text-sm font-semibold uppercase tracking-widest mb-3">
             أمثلة حية
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-text-primary mb-4">
@@ -133,7 +133,7 @@ export default function UseCases() {
                   onClick={() => setActive(key)}
                   className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
                     active === key
-                      ? "bg-gold text-night shadow-gold-sm"
+                      ? "bg-brand-gradient text-white shadow-brand-sm"
                       : "text-text-muted hover:text-text-primary"
                   }`}
                 >
@@ -206,7 +206,7 @@ export default function UseCases() {
                 className="flex items-start gap-4 p-5 rounded-2xl border border-border bg-surface-2 animate-fade-in-up"
                 style={{ animationDelay: `${i * 0.15}s` }}
               >
-                <div className={`w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0 ${c.color}`}>
+                <div className={`w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 ${c.color}`}>
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
@@ -219,8 +219,8 @@ export default function UseCases() {
             ))}
 
             {/* Bottom note */}
-            <div className="mt-4 p-4 rounded-2xl border border-gold/20 bg-gold/5 text-center">
-              <p className="text-gold text-sm font-semibold mb-1">كل هذا في ثوانٍ</p>
+            <div className="mt-4 p-4 rounded-2xl border border-primary/20 bg-primary/5 text-center">
+              <p className="text-gradient-brand text-sm font-semibold mb-1">كل هذا في ثوانٍ</p>
               <p className="text-text-muted text-xs">
                 بدون موظف، بدون انتظار، بدون أخطاء.
               </p>
