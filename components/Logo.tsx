@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 
 interface LogoProps {
@@ -13,21 +11,13 @@ export default function Logo({ size = 36, showText = true, textClass = "", lang 
   const name = lang === "ar" ? "ردود" : "Rudood";
   return (
     <div className="flex items-center gap-2">
-      {/* Try PNG first, fallback to SVG */}
-      <div style={{ width: size, height: size }} className="relative shrink-0">
-        <Image
-          src="/logo.png"
-          alt="Rudood Logo"
-          width={size}
-          height={size}
-          className="object-contain"
-          onError={(e) => {
-            // Fallback to SVG if PNG not found
-            const target = e.target as HTMLImageElement;
-            target.src = "/logo.svg";
-          }}
-        />
-      </div>
+      <Image
+        src="/logo.png"
+        alt="Rudood Logo"
+        width={size}
+        height={size}
+        className="object-contain shrink-0"
+      />
       {showText && (
         <span className={`font-black tracking-tight ${textClass || "text-xl text-text-primary"}`}>
           {name}

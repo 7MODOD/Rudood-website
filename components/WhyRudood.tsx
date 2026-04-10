@@ -41,7 +41,7 @@ const features = [
     title: "ردود ذكية تفهم السياق",
     description:
       'مش قوالب جامدة. ردود يفهم سياق محادثة كاملة ويرد بطبيعية تماماً — كأنه موظفك الأذكى.',
-    highlight: "GPT-4o",
+    highlight: "AI",
   },
   {
     icon: (

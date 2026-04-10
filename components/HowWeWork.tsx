@@ -19,7 +19,7 @@ const steps = [
     ),
     title: "ندرّب الذكاء الاصطناعي",
     description:
-      "نبني وندرّب النموذج على صوت علامتك التجارية وبياناتك حتى يرد تماماً بأسلوبك وبمعلوماتك.",
+      "نبني وندرّب النموذج على معلومات علامتك التجارية ومنتجاتك حتى يرد تماماً بأسلوبك وبمعلوماتك.",
   },
   {
     number: "03",
@@ -103,7 +103,7 @@ export default function HowWeWork() {
           <div>
             <h3 className="text-xl font-black text-text-primary mb-1">
               الإعداد الكامل في{" "}
-              <span className="text-cyan" dir="ltr">3-7</span> أيام عمل فقط
+              <span className="text-cyan" dir="ltr">3 الى 7</span> أيام عمل فقط
             </h3>
             <p className="text-text-muted text-sm">
               من اليوم الأول للتواصل معنا حتى يبدأ النظام بالرد على عملاءك — أسبوع واحد.

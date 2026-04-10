@@ -4,24 +4,52 @@ import { useState } from "react";
 
 const messageOptions = [
   { value: "", label: "اختر عدد الرسائل المتوقع شهرياً" },
-  { value: "less-500", label: "أقل من 500 رسالة" },
-  { value: "500-2000", label: "500 – 2,000 رسالة" },
-  { value: "2000-5000", label: "2,000 – 5,000 رسالة" },
-  { value: "more-5000", label: "أكثر من 5,000 رسالة" },
+  { value: "less-1500", label: "أقل من 1,500 رسالة" },
+  { value: "1500-5000", label: "1,500 – 5,000 رسالة" },
+  { value: "5000-10000", label: "5,000 – 10,000 رسالة" },
+  { value: "more-10000", label: "أكثر من 10,000 رسالة" },
 ];
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate submission — replace with real API call
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 1200);
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const N8N_FORM_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_FORM_URL ?? "https://n8n.rudood.app/webhook/0a642cd4-ed02-487b-ab79-ef1899151276";
+      // 2. إرسال البيانات إلى n8n Webhook
+      const response = await fetch(N8N_FORM_WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } 
+      
+      else {
+        console.error("حدث خطأ أثناء الإرسال لـ n8n، حالة الرد:", response.status);
+        alert("عذراً، حدث خطأ أثناء إرسال طلبك. يرجى المحاولة لاحقاً.");
+      }
+    }
+    
+    catch (error) {
+      // في حال فشل الاتصال بالكامل (مثلاً لا يوجد إنترنت أو السيرفر متوقف)
+      console.error("فشل الاتصال بخادم n8n:", error);
+      alert("تعذر الاتصال بالخادم. يرجى التحقق من اتصال الإنترنت الخاص بك.");
+    } 
+    
+    finally {
+      setLoading(false); // إيقاف دائرة التحميل في كل الأحوال
+    }
   };
 
   return (
@@ -75,6 +103,7 @@ export default function ContactForm() {
               </label>
               <input
                 type="text"
+                name="fullName"
                 required
                 placeholder="محمد أحمد"
                 className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder-text-faint focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all text-sm"
@@ -88,8 +117,9 @@ export default function ContactForm() {
               </label>
               <input
                 type="tel"
+                name="phone"
                 required
-                placeholder="+966 5X XXX XXXX"
+                placeholder="+970 5X XXX XXXX"
                 dir="ltr"
                 className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder-text-faint focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all text-sm text-end"
               />
@@ -102,6 +132,7 @@ export default function ContactForm() {
               </label>
               <input
                 type="email"
+                name="email"
                 required
                 placeholder="name@business.com"
                 dir="ltr"
@@ -116,6 +147,7 @@ export default function ContactForm() {
               </label>
               <input
                 type="text"
+                name="businessName"
                 required
                 placeholder="متجر الأناقة"
                 className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder-text-faint focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all text-sm"
@@ -128,6 +160,7 @@ export default function ContactForm() {
                 عدد الرسائل المتوقع شهرياً <span className="text-red-400">*</span>
               </label>
               <select
+                name="expectedMessages"
                 required
                 className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all text-sm appearance-none cursor-pointer"
               >

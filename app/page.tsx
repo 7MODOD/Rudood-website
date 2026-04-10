@@ -3,7 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import WhyRudood from "@/components/WhyRudood";
 import PlatformsSection from "@/components/PlatformsSection";
 import HowWeWork from "@/components/HowWeWork";
-import UseCases from "@/components/UseCases";
+import TryNow from "@/components/TryNow";
 import Pricing from "@/components/Pricing";
 import ContactForm from "@/components/ContactForm";
 import FAQ from "@/components/FAQ";
@@ -18,7 +18,7 @@ export default function Home() {
       <PlatformsSection />
       <WhyRudood />
       <HowWeWork />
-      <UseCases />
+      <TryNow />
       <Pricing />
       <ContactForm />
       <FAQ />

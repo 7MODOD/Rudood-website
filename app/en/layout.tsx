@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 
 export default function EnLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" dir="ltr" className={cairo.variable}>
-      <body className="antialiased">{children}</body>
-    </html>
+    <div dir="ltr" lang="en" className={`${cairo.variable} antialiased`}>
+      {children}
+    </div>
   );
 }

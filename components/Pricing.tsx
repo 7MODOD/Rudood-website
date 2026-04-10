@@ -14,14 +14,13 @@ const tiers: PricingTier[] = [
   {
     name: "الأساسية",
     subtitle: "للمتاجر الناشئة",
-    price: "49",
+    price: "200",
     period: "شهرياً",
     messages: "حتى 1,500 رسالة",
     features: [
       "رد ذكي على واتساب وإنستغرام وماسنجر",
       "تدريب على بيانات متجرك",
       "دعم فني عبر البريد",
-      "تقارير شهرية",
       "حتى 1,500 رسالة/شهر",
     ],
     cta: "ابدأ بالأساسية",
@@ -29,14 +28,13 @@ const tiers: PricingTier[] = [
   {
     name: "الأعمال",
     subtitle: "للمتاجر النشطة",
-    price: "89",
+    price: "300",
     period: "شهرياً",
     messages: "حتى 5,000 رسالة",
     features: [
       "كل مزايا الأساسية",
       "حتى 5,000 رسالة/شهر",
       "دعم فني أولوية",
-      "تقارير أسبوعية مفصّلة",
       "تحديث التدريب شهرياً",
       "تخصيص أسلوب الرد",
     ],
@@ -47,7 +45,7 @@ const tiers: PricingTier[] = [
   {
     name: "VIP المخصصة",
     subtitle: "للشركات والضغط العالي",
-    price: "150+",
+    price: "+450",
     period: "شهرياً",
     messages: "رسائل غير محدودة",
     features: [
@@ -94,7 +92,7 @@ export default function Pricing() {
             <span className="text-cyan text-base">⚡</span>
             <span className="text-text-muted">
               رسوم تأسيس لمرة واحدة:{" "}
-              <span className="text-cyan font-bold" dir="ltr">$100</span>
+              <span className="text-cyan font-bold" dir="ltr">300₪</span>
               {" "}— تشمل التدريب والربط التقني الكامل
             </span>
           </div>
@@ -135,7 +133,7 @@ export default function Pricing() {
               {/* Price */}
               <div>
                 <div className="flex items-end gap-1">
-                  <span className="text-text-muted text-lg font-medium" dir="ltr">$</span>
+                  <span className="text-text-muted text-lg font-medium" dir="ltr">₪</span>
                   <span
                     className={`text-5xl font-black leading-none ${tier.priceColor || "text-text-primary"}`}
                     dir="ltr"
@@ -150,7 +148,7 @@ export default function Pricing() {
 
               {/* CTA */}
               <a
-                href={tier.name === "VIP المخصصة" ? "https://wa.me/your-number" : "#contact"}
+                href={tier.name === "VIP المخصصة" ? "https://wa.me/970597876548" : "#contact"}
                 className={`block text-center px-6 py-3.5 rounded-full font-bold text-base transition-all duration-200 ${
                   tier.isPopular
                     ? "bg-brand-gradient text-white hover:opacity-90 shadow-brand-sm"
@@ -175,7 +173,7 @@ export default function Pricing() {
 
         {/* Bottom note */}
         <p className="text-center text-text-faint text-sm mt-10">
-          جميع الأسعار بالدولار الأمريكي · الدفع شهري · إلغاء الاشتراك في أي وقت
+          جميع الأسعار بالشيكل · الدفع شهري · إلغاء الاشتراك في أي وقت
         </p>
       </div>
     </section>
