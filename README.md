@@ -1,179 +1,124 @@
-# Rudood — AI Customer Service Automation
+# ردود (Rudood) — Landing Page
 
-A modern pre-launch landing page for **Rudood**, an AI-powered customer service automation platform that handles WhatsApp, Instagram & Messenger conversations 24/7.
+منصة ردود لأتمتة خدمة العملاء على واتساب بالذكاء الاصطناعي.
 
----
+## Tech Stack
 
-## 🚀 Getting Started
+- **Next.js** (App Router)
+- **TypeScript**
+- **Tailwind CSS v4**
+- **Google Fonts — Cairo** (Arabic + Latin)
 
-### Prerequisites
-
-- Node.js 18.x or higher
-- npm 9+
-
-### Install & Run
+## Getting Started
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) for the Arabic (RTL) version.  
-Open [http://localhost:3000/en](http://localhost:3000/en) for the English (LTR) version.
+Open [http://localhost:3000](http://localhost:3000)
 
----
-
-## 📁 Project Structure
-
-```
-app/
-├── page.tsx              # Arabic landing page (RTL)
-├── layout.tsx            # Root layout (Cairo font, RTL)
-├── globals.css           # Global styles & animations
-├── privacy/
-│   └── page.tsx          # Arabic privacy policy
-└── en/
-    ├── layout.tsx        # English layout (Inter font, LTR)
-    ├── page.tsx          # English landing page
-    └── privacy/
-        └── page.tsx      # English privacy policy
-
-public/
-└── logo.jpg              # Rudood logo
+```bash
+npm run build   # production build + type check
+npm run lint    # ESLint
 ```
 
 ---
 
-## 🔧 Configuration
+## Changes Made
 
-### n8n Webhook URLs
+### Foundation
 
-Replace the placeholder constants at the top of both `app/page.tsx` and `app/en/page.tsx`:
+| File | Change |
+|------|--------|
+| `app/globals.css` | Full replacement with Tailwind v4 `@theme inline` color tokens, keyframe animations, and utility classes |
+| `app/layout.tsx` | Replaced Geist font with **Cairo** (Arabic subset), set `lang="ar" dir="rtl"` on `<html>`, updated metadata |
+| `app/page.tsx` | Replaced default template with a clean orchestrator that imports all section components |
 
-```ts
-const N8N_CHAT_WEBHOOK_URL = "https://YOUR-N8N-URL/webhook/chat";
-const N8N_FORM_WEBHOOK_URL = "https://YOUR-N8N-URL/webhook/waitlist";
-```
+### New Components (`/components`)
 
-**Expected n8n response format for the chat webhook:**
+| Component | Section | Description |
+|-----------|---------|-------------|
+| `Navbar.tsx` | Navigation | Sticky frosted-glass nav with logo, anchor links, CTA button, and mobile hamburger menu |
+| `HeroSection.tsx` | Hero | Two-column RTL layout with headline, sub-headline, dual CTAs, trust badges, floating WhatsApp phone mockup, and stats row |
+| `WhyRudood.tsx` | Why Rudood? | Pain points grid (red-tinted cards) + feature cards grid (gold-accent) |
+| `HowWeWork.tsx` | How We Work | 4-step timeline with connecting line, numbered circles, and 3–7 day timeline banner |
+| `UseCases.tsx` | Live Examples | Tab switcher (clothing / restaurant), CSS phone frame, WhatsApp-styled chat bubbles, callout cards |
+| `Pricing.tsx` | Pricing | 3-tier pricing cards with setup fee banner, popular badge shimmer animation, feature lists |
+| `FAQ.tsx` | FAQ | Accordion (5 questions, React state only), WhatsApp CTA at bottom |
+| `Footer.tsx` | Footer | CTA banner, 3-column layout (logo/social, quick links, contact), copyright bar |
 
-```json
-{ "reply": "Your AI-generated response here" }
-```
+### Design System
 
-**Expected waitlist form payload:**
+**Color Palette:**
 
-```json
-{
-  "name": "...",
-  "company": "...",
-  "whatsapp": "...",
-  "volume": "...",
-  "submittedAt": "ISO 8601 timestamp"
-}
-```
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `night` | `#0D0F1A` | Page background |
+| `surface` | `#13162A` | Card backgrounds |
+| `surface-2` | `#1C2040` | Elevated cards |
+| `border` | `#252A4A` | Subtle borders |
+| `gold` | `#D4A843` | Primary accent, CTAs |
+| `gold-light` | `#F0C96A` | Hover on gold |
+| `teal` | `#14B8A6` | Secondary accent, success |
+| `text-primary` | `#F0F2FF` | Main text |
+| `text-muted` | `#8B92B8` | Secondary text |
 
----
+**Animations:** `fadeInUp`, `float`, `pulseRing`, `shimmer`, `typingDot`, `slideIn`
 
-## 🛠️ Tech Stack
-
-| Layer      | Technology              |
-| ---------- | ----------------------- |
-| Framework  | Next.js 14 (App Router) |
-| Styling    | Tailwind CSS v3         |
-| Animations | Framer Motion           |
-| Toasts     | Sonner                  |
-| Icons      | Lucide React            |
-| AR Font    | Cairo (Google Fonts)    |
-| EN Font    | Inter (Google Fonts)    |
-
----
-
-## 💡 Improvement Suggestions
-
-### 🔴 High Priority
-
-1. **Replace `<img>` with `<Image />` from `next/image`**  
-   The logo uses a plain `<img>` tag, skipping Next.js image optimization (lazy loading, WebP conversion, size negotiation).
-
-   ```tsx
-   import Image from "next/image";
-   <Image
-     src="/logo.jpg"
-     alt="Rudood"
-     width={40}
-     height={40}
-     className="rounded-xl object-cover"
-   />;
-   ```
-
-2. **Move webhook URLs to environment variables**  
-   Move `N8N_CHAT_WEBHOOK_URL` / `N8N_FORM_WEBHOOK_URL` to `.env.local` so they are never exposed in source control:
-
-   ```env
-   NEXT_PUBLIC_N8N_CHAT_URL=https://...
-   NEXT_PUBLIC_N8N_FORM_URL=https://...
-   ```
-
-3. **Add rate-limiting / CAPTCHA on the Waitlist form**  
-   Without server-side protection the form can be spammed. Add a 30-second cooldown or integrate Cloudflare Turnstile.
-
-4. **Use a Server Action for waitlist submission**  
-   Move the waitlist POST to a Next.js `"use server"` action so the n8n URL is never sent to the browser at all.
+**RTL Implementation:**
+- `dir="rtl"` + `lang="ar"` on `<html>`
+- Tailwind logical properties: `ms-*`, `me-*`, `ps-*`, `pe-*`, `start-*`, `end-*`
+- `rtl:` variant for directional icons
+- `dir="ltr"` inline on prices and numbers
 
 ---
 
-### 🟡 Medium Priority
+## Content
 
-5. **Replace logo JPEG with transparent PNG or SVG**  
-   The current `.jpg` has a white background. A transparent file blends cleanly with the dark UI.
+### Sections & Copy
 
-6. **Add `og:image` Open Graph meta tag**  
-   Generate a 1200×630 social preview image using `next/og` for better sharing on WhatsApp, Twitter, LinkedIn.
-
-7. **Implement `next-intl` for i18n**  
-   Currently AR and EN are duplicate files. A proper i18n library removes duplication, enables `hreflang` SEO tags, and makes adding new languages trivial.
-
-8. **Add a `/thank-you` page after form submit**  
-   A dedicated redirect page enables Google Analytics conversion tracking and provides a cleaner UX flow.
-
-9. **Add Google Analytics or Plausible**  
-   No analytics are currently set up. Track:
-   - CTA click-through rate (Hero → Waitlist)
-   - Chat demo engagement
-   - Form completion & drop-off rates
-
-10. **Fix privacy page logo to use the actual logo image**  
-    The Arabic privacy page (`app/privacy/page.tsx`) still uses a gradient "R" placeholder instead of the real logo.
+1. **Hero** — "لا تخسر عميلاً واحداً بسبب الانتظار" with phone mockup showing a real WhatsApp conversation
+2. **Why Rudood?** — Pain points (lost messages, slow responses, staff costs) + 4 feature cards
+3. **How We Work** — 4 steps: understand business → train AI → technical integration → launch (3–7 days)
+4. **Live Examples** — Interactive tab switcher: clothing store & restaurant WhatsApp conversations
+5. **Pricing** — 3 tiers: Basic $49/mo · Business $89/mo · VIP from $150/mo + $100 one-time setup
+6. **FAQ** — 5 questions covering AI errors, unknown answers, requirements, technical expertise, data security
+7. **Footer** — CTA banner, social links, contact info
 
 ---
 
-### 🟢 Nice to Have
+## Suggestions for Future Improvement
 
-11. **Animated counter stats in the Hero**  
-    Counters like "10,000+ messages handled" that increment on scroll are high-converting social proof for SaaS landing pages.
+### High Priority
 
-12. **Testimonials / Customer Logos section**  
-    A "Trusted by" section with logos once you have early customers significantly improves conversion.
+- **Analytics** — Add Plausible or PostHog to track CTA clicks, section scroll depth, and tab switching in UseCases
+- **WhatsApp number** — Replace all `https://wa.me/your-number` placeholders with the real number
+- **Contact form** — Add a real contact/onboarding form instead of just WhatsApp links (better lead capture)
+- **Video demo** — The "شاهد العرض" CTA currently scrolls to use cases. Consider linking to a real Loom/YouTube video
 
-13. **Live Rudood chat widget on the page**  
-    Integrate a real Rudood-powered chat so visitors can experience the product first-hand — a powerful "try before you buy" mechanic.
+### Performance
 
-14. **Accessibility (a11y) audit**  
-    Check: color contrast on gradient text, keyboard navigation for FAQ accordion, and screen reader labels for icon-only buttons.
+- **Image optimization** — If product images or team photos are added later, use Next.js `<Image>` component
+- **Lazy loading** — `UseCases` and `Pricing` components can be dynamically imported (`next/dynamic`) to reduce initial bundle
+- **Font subsetting** — Cairo loads Arabic + Latin; consider subsetting further if only specific weights are used
 
-15. **Progressive Web App (PWA) manifest**  
-    A `manifest.json` allows the page to be installed as a mobile shortcut — improving brand recall.
+### UX Improvements
 
-16. **Blog / SEO content**  
-    Even 3-4 articles targeting "WhatsApp business automation" or "AI customer service Arabic" can drive significant organic traffic.
+- **Scroll animations** — Add IntersectionObserver or use the CSS `animation-timeline: view()` for scroll-triggered reveals on WhyRudood and HowWeWork cards
+- **Toast notifications** — Add feedback when a form is submitted or a WhatsApp link is clicked
+- **Sticky pricing** — Consider a sticky mini-pricing bar that appears after user scrolls past the hero
 
-17. **Dark/Light mode toggle**  
-    A system-preference-aware toggle improves accessibility and reaches users who prefer light mode.
+### Business Features
 
----
+- **A/B test headlines** — Test alternate headlines in HeroSection to optimize conversion
+- **Testimonials section** — Add a social proof section between Pricing and FAQ once you have real customer quotes
+- **Live chat widget** — Embed a real Chatwoot widget so visitors can chat directly from the landing page
+- **Multi-language** — Add English version (`/en`) for non-Arabic-speaking business owners using Next.js i18n routing
+- **Blog/SEO** — Add a blog section with Arabic SEO-optimized content about WhatsApp automation
 
-## 📬 Contact
+### Technical
 
-**Email:** info@rudood.com  
-**Website:** [www.rudood.com](https://www.rudood.com)
+- **Environment variables** — Move WhatsApp number and email to `.env.local`
+- **Error boundary** — Wrap client components (UseCases, FAQ, Navbar) in error boundaries
+- **Sitemap + robots.txt** — Add `app/sitemap.ts` and `app/robots.ts` for SEO

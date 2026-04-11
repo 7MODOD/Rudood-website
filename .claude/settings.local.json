@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(npx next:*)",
+      "Bash(git -C \"/c/Users/od7mo/OneDrive/Desktop/rudood-web1/rudood\" remote -v)",
+      "Bash(git -C \"/c/Users/od7mo/OneDrive/Desktop/rudood-web1/rudood\" log --oneline -5)",
+      "Bash(git -C \"/c/Users/od7mo/OneDrive/Desktop/rudood-web1/rudood\" branch -a)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npm install:*)",
+      "WebFetch(domain:www.rudood.app)",
+      "WebFetch(domain:rudood.app)",
+      "Bash(node_modules/.bin/tsc --noEmit)"
+    ]
+  }
+}

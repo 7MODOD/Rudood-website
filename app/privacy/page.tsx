@@ -1,263 +1,216 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Shield, Mail } from "lucide-react";
+import Logo from "@/components/Logo";
+
+export const metadata: Metadata = {
+  title: "سياسة الخصوصية | ردود",
+  description: "سياسة الخصوصية وحماية البيانات لمنصة ردود — خدمة أتمتة الردود بالذكاء الاصطناعي عبر واتساب وإنستغرام وماسنجر.",
+};
+
+const sections = [
+  {
+    title: "1. نبذة عن الخدمة",
+    content: `ردود هي منصة لأتمتة خدمة العملاء تعتمد على نموذج GPT-4o. تعمل المنصة عبر تطبيق Meta Business متكامل مع واجهات Meta Business API، مما يتيح لها استقبال الرسائل والرد عليها تلقائياً عبر:
+
+• واتساب Business (WhatsApp Business Platform)
+• إنستغرام (Instagram Messaging API)
+• فيسبوك ماسنجر (Messenger Platform)
+
+عند ربط حسابك بمنصة ردود، تمنحنا صلاحية الوصول إلى محادثات عملاءك عبر هذه المنصات بهدف الرد عليهم تلقائياً نيابةً عنك.`,
+  },
+  {
+    title: "2. البيانات التي نجمعها",
+    content: `أ) بيانات صاحب النشاط التجاري (العميل):
+• الاسم الكامل، البريد الإلكتروني، رقم الهاتف
+• اسم النشاط التجاري ومعلوماته
+• معلومات المنتجات والأسعار والسياسات التي تُقدمها لتدريب النظام
+• بيانات الحساب والاشتراك
+
+ب) بيانات عملاء نشاطك التجاري (المستخدمون النهائيون):
+• الرسائل التي يُرسلها عملاؤك عبر واتساب أو إنستغرام أو ماسنجر
+• معرّفات المحادثات (User IDs) المرتبطة بمنصات Meta
+• وقت وتاريخ الرسائل
+• لا نجمع بيانات شخصية للمستخدمين النهائيين إلا ما يُشاركونه طوعاً ضمن المحادثة
+
+ج) بيانات الاستخدام:
+• إحصائيات الرسائل وأوقات الاستجابة
+• معلومات تقنية (IP، المتصفح، نوع الجهاز) لأغراض الأمان`,
+  },
+  {
+    title: "3. كيف نستخدم البيانات",
+    content: `نستخدم البيانات المجموعة لأغراض محددة فقط:
+
+• تشغيل خدمة الرد الآلي بالذكاء الاصطناعي نيابةً عن نشاطك التجاري
+• تدريب وضبط نموذج الذكاء الاصطناعي على خصوصية نشاطك (منتجاتك، أسلوبك، سياساتك)
+• معالجة الرسائل الواردة عبر واجهات Meta API وإرسال الردود
+• تحسين جودة الردود وأداء المنصة
+• إرسال إشعارات تقنية وتحديثات خدمية
+• الدعم الفني عند الحاجة
+
+لا نستخدم محادثات عملاءك لأي غرض تسويقي أو تجاري خارج نطاق الخدمة المتفق عليها.`,
+  },
+  {
+    title: "4. استخدام Meta Business API والامتثال لسياسات Meta",
+    content: `منصة ردود مدمجة مع Meta Business Platform وتعمل وفق شروط استخدام Meta وسياساتها، بما يشمل:
+
+• سياسة بيانات مطوّري Meta (Meta Platform Terms)
+• سياسة استخدام واتساب Business (WhatsApp Business Policy)
+• شروط خدمة Messenger Platform
+• متطلبات Instagram Messaging API
+
+نلتزم بالقيود التالية التي تفرضها Meta:
+• لا نستخدم بيانات المستخدمين لأغراض إعلانية مستهدفة
+• لا نبيع أو نشارك بيانات المستخدمين مع أي طرف ثالث لأغراض تجارية
+• نُقيّد وصول بيانات المحادثات على موظفينا وأنظمتنا التقنية فقط
+• نحتفظ بالبيانات للمدة الضرورية لتشغيل الخدمة فحسب
+
+عمليات معالجة البيانات عبر Meta تخضع أيضاً لسياسة خصوصية Meta المتاحة على: https://www.facebook.com/policy`,
+  },
+  {
+    title: "5. مشاركة البيانات",
+    content: `لا نبيع بياناتك ولا نؤجرها. نشارك البيانات في الحالات التالية فقط:
+
+• مزودو الخدمة التقنية: OpenAI (معالجة الذكاء الاصطناعي)، n8n (أتمتة سير العمل)، Chatwoot (إدارة المحادثات)، خدمات الاستضافة — جميعهم ملتزمون بعدم استخدام بياناتك لأغراض خارج نطاق الخدمة
+• Meta Platforms: نتبادل الرسائل مع منصات Meta (واتساب / إنستغرام / ماسنجر) في إطار التكامل التقني المصرّح به
+• الجهات القانونية: عند الإلزام بذلك قانونياً بموجب أمر قضائي أو طلب حكومي رسمي
+• بموافقتك الصريحة المسبقة في أي حالة أخرى`,
+  },
+  {
+    title: "6. أمان البيانات",
+    content: `نطبق إجراءات أمان متعددة الطبقات:
+
+• تشفير كامل للبيانات أثناء النقل (TLS 1.3) وأثناء التخزين (AES-256)
+• التحكم في الوصول بمبدأ الحد الأدنى من الصلاحيات
+• عزل بيانات كل عميل عن الآخرين في بيئات مستقلة
+• مراجعات أمنية دورية واختبارات اختراق
+• نسخ احتياطية مشفرة ومنتظمة
+• سجلات تدقيق لجميع عمليات الوصول إلى البيانات`,
+  },
+  {
+    title: "7. الاحتفاظ بالبيانات وحذفها",
+    content: `• بيانات الحساب: نحتفظ بها طالما حسابك نشط
+• سجلات المحادثات: تُحفظ لمدة 12 شهراً افتراضياً ويمكنك تقصير هذه المدة
+• بيانات التدريب: تُحذف أو تُنظّف عند إلغاء الاشتراك
+
+عند إغلاق حسابك:
+• تُحذف بيانات المحادثات خلال 30 يوم عمل
+• تُحذف بيانات التدريب خلال 60 يوم عمل
+• نحتفظ بما يلزم قانونياً (كالفواتير) وفق المتطلبات التنظيمية
+
+يمكنك في أي وقت طلب حذف فوري لبياناتك عبر البريد الإلكتروني.`,
+  },
+  {
+    title: "8. حقوقك كمستخدم",
+    content: `لديك الحق في:
+
+• الاطلاع: الحصول على نسخة من بياناتك الشخصية التي نحتفظ بها
+• التصحيح: تعديل أي معلومات غير دقيقة
+• الحذف: طلب حذف بياناتك ("الحق في النسيان") مع مراعاة المتطلبات القانونية
+• تقييد المعالجة: الاعتراض على استخدام بياناتك لأغراض معينة
+• قابلية النقل: استلام بياناتك بصيغة قابلة للقراءة الآلية
+• سحب الموافقة: إلغاء صلاحيات الوصول إلى حساباتك على Meta في أي وقت
+
+للممارسة أي من هذه الحقوق، تواصل معنا على: privacy@rudood.app`,
+  },
+  {
+    title: "9. خصوصية الأطفال",
+    content: `خدماتنا موجهة حصراً للشركات والأفراد البالغين (18 عاماً فأكثر). لا نجمع بيانات القاصرين عمداً. إن اكتشفنا جمع بيانات قاصر بالخطأ، نحذفها فوراً ونُبلّغ وليّ الأمر إن أمكن.`,
+  },
+  {
+    title: "10. التغييرات على هذه السياسة",
+    content: `قد نحدّث هذه السياسة لمواكبة التغييرات القانونية أو التقنية. عند التحديث:
+
+• نُخطرك عبر البريد الإلكتروني المسجل قبل 30 يوماً من سريان التغييرات الجوهرية
+• نعرض إشعاراً واضحاً في لوحة التحكم
+• نحتفظ بأرشيف النسخ السابقة للسياسة
+
+استمرار استخدامك للخدمة بعد التحديث يُعد قبولاً للسياسة المعدّلة.`,
+  },
+  {
+    title: "11. التواصل والشكاوى",
+    content: `لأي أسئلة أو استفسارات أو شكاوى تتعلق بخصوصيتك:
+
+📧 البريد الإلكتروني: privacy@rudood.app
+💬 واتساب: تواصل معنا عبر الموقع
+🌐 الموقع: rudood.app
+
+نلتزم بالرد على جميع الاستفسارات المتعلقة بالخصوصية خلال 72 ساعة عمل.`,
+  },
+];
 
 export default function PrivacyPage() {
-  const lastUpdated = "مارس ٢٠٢٦";
-
-  const sections = [
-    {
-      title: "١. مقدمة وقبول الشروط",
-      content: `مرحباً بك في ردود ("الشركة"، "نحن"، "خدمتنا"). تُبيّن سياسة الخصوصية هذه كيفية جمعنا للمعلومات واستخدامها والإفصاح عنها وحمايتها عند استخدامك لمنصة ردود لأتمتة خدمة العملاء عبر واتساب وإنستغرام وماسنجر.
-
-باستخدامك لخدمتنا، فإنك توافق على الشروط الواردة في هذه السياسة. إن كنت لا توافق على هذه الشروط، يُرجى عدم استخدام الخدمة.`,
-    },
-    {
-      title: "٢. المعلومات التي نجمعها",
-      content: `نجمع أنواعاً مختلفة من المعلومات لتشغيل خدمتنا وتحسينها:
-
-**معلومات الحساب:** الاسم، عنوان البريد الإلكتروني، رقم الهاتف، واسم الشركة أو المتجر التي تُقدمها عند التسجيل.
-
-**بيانات المحادثات:** محتوى الرسائل المتبادلة بين عملائك وروبوت الذكاء الاصطناعي عبر واتساب وإنستغرام وماسنجر. تُستخدم هذه البيانات حصراً لتشغيل الخدمة وتحسين جودة الردود.
-
-**بيانات الاستخدام:** معلومات حول كيفية تفاعلك مع المنصة، بما في ذلك عدد الرسائل المعالَجة، وأوقات الاستجابة، والمميزات المستخدمة.
-
-**البيانات التقنية:** عنوان IP، ونوع المتصفح، وبيانات السجلات، والبيانات اللازمة لتوفير الأمان وتشخيص الأعطال.`,
-    },
-    {
-      title: "٣. كيفية استخدامنا للمعلومات",
-      content: `نستخدم المعلومات التي نجمعها للأغراض التالية:
-
-• **تشغيل الخدمة:** معالجة الرسائل الواردة وتوليد ردود ذكاء اصطناعي مناسبة بالنيابة عنك.
-• **تحسين النماذج:** تدريب وتحسين نماذج الذكاء الاصطناعي لرفع جودة الردود ودقتها — بعد إزالة أي بيانات تعريفية شخصية.
-• **التواصل معك:** إرسال الإشعارات المتعلقة بالخدمة، والتحديثات، والمعلومات الدعائية التي وافقت على استلامها.
-• **الدعم الفني:** تشخيص المشكلات التقنية وحلها.
-• **الامتثال القانوني:** الوفاء بالتزاماتنا القانونية والتنظيمية.`,
-    },
-    {
-      title: "٤. معالجة المحادثات بالذكاء الاصطناعي",
-      content: `تعتمد خدمة ردود على معالجة المحادثات النصية بالذكاء الاصطناعي. يُرجى العلم بما يلي:
-
-• تُرسَل الرسائل الواردة من عملائك إلى نماذج الذكاء الاصطناعي لتوليد الردود المناسبة.
-• قد تُستخدم بيانات المحادثات —بعد إخفاء الهوية— لتحسين جودة النماذج اللغوية.
-• لديك الحق في تعطيل استخدام بيانات محادثاتك لأغراض التدريب بالتواصل معنا مباشرةً.
-• نحرص على تقليل البيانات المعالَجة إلى الحد الضروري لتقديم الخدمة.`,
-    },
-    {
-      title: "٥. مشاركة البيانات مع جهات خارجية",
-      content: `نتكامل مع منصات Meta (واتساب، إنستغرام، ماسنجر) ونلتزم بسياساتها. نشارك البيانات مع أطراف ثالثة في الحالات التالية فقط:
-
-**مزودو الخدمات:** شركاء تشغيليون موثوقون يساعدون في تقديم خدمتنا (مزودو الخادم، تحليلات البيانات) ويلتزمون بعقود معالجة بيانات صارمة.
-
-**منصات Meta:** وفقاً لشروط خدمة واتساب Business API وإنستغرام Graph API وماسنجر Platform.
-
-**الجهات القانونية:** عند الضرورة القانونية أو بأمر من المحاكم المختصة.
-
-**لا نبيع بياناتك الشخصية لأي طرف ثالث بأي حال من الأحوال.**`,
-    },
-    {
-      title: "٦. الأمان وحماية البيانات",
-      content: `نتخذ تدابير أمنية صارمة لحماية بياناتك:
-
-• **التشفير:** جميع البيانات مشفَّرة أثناء النقل باستخدام بروتوكول TLS 1.3، وأثناء التخزين بمعايير AES-256.
-• **التحكم بالوصول:** وصول مُقيَّد بمبدأ الحد الأدنى من الامتيازات مع مصادقة متعددة العوامل.
-• **المراقبة:** مراقبة أمنية مستمرة للكشف عن أي نشاط غير مصرح به.
-• **النسخ الاحتياطي:** نسخ احتياطية منتظمة لضمان استمرارية الخدمة.
-
-مع ذلك، لا يمكن ضمان الأمان المطلق على الإنترنت. ننصحك باتخاذ الاحتياطات اللازمة من جانبك.`,
-    },
-    {
-      title: "٧. حقوقك كمستخدم",
-      content: `لك الحق في:
-
-• **الوصول:** طلب نسخة من بياناتك الشخصية التي نحتفظ بها.
-• **التصحيح:** طلب تصحيح أي بيانات غير دقيقة.
-• **الحذف:** طلب حذف بياناتك الشخصية، مع مراعاة المتطلبات القانونية.
-• **الاعتراض:** الاعتراض على معالجة بياناتك لأغراض معينة.
-• **النقل:** طلب نقل بياناتك بصيغة قابلة للقراءة الآلية.
-• **إلغاء الاشتراك:** إلغاء الاشتراك في الاتصالات التسويقية في أي وقت.
-
-لممارسة هذه الحقوق، تواصل معنا عبر: info@rudood.com`,
-    },
-    {
-      title: "٨. الاحتفاظ بالبيانات",
-      content: `نحتفظ ببياناتك الشخصية طوال مدة اشتراكك في الخدمة. بعد إلغاء الحساب:
-
-• تُحذف بيانات المحادثات النشطة خلال ٣٠ يوماً.
-• تُحتفظ بسجلات الحساب الضرورية للامتثال القانوني وفقاً للأنظمة المعمول بها.
-• يمكنك طلب الحذف الفوري لبياناتك بالتواصل معنا مباشرةً.`,
-    },
-    {
-      title: "٩. ملفات تعريف الارتباط (Cookies)",
-      content: `نستخدم ملفات تعريف الارتباط وتقنيات مشابهة لتحسين تجربتك:
-
-• **الضرورية:** لازمة لتشغيل الموقع والخدمة بشكل صحيح.
-• **الأداء:** تساعدنا في فهم كيفية استخدام الموقع لتحسينه.
-• **التفضيلات:** تتذكر إعداداتك المفضلة.
-
-يمكنك التحكم في ملفات تعريف الارتباط عبر إعدادات متصفحك، مع العلم بأن تعطيلها قد يؤثر على بعض وظائف الموقع.`,
-    },
-    {
-      title: "١٠. خصوصية القاصرين",
-      content: `خدمة ردود موجّهة للشركات والمتاجر، ولا نجمع بيانات شخصية بصورة مقصودة من أشخاص دون سن ١٨ عاماً. إن اكتشفنا أننا جمعنا بيانات من قاصر، نتخذ الإجراءات اللازمة لحذفها فوراً.`,
-    },
-    {
-      title: "١١. التعديلات على السياسة",
-      content: `نحتفظ بحق تعديل هذه السياسة في أي وقت. في حال إجراء تعديلات جوهرية، نُخطرك عبر:
-• البريد الإلكتروني المرتبط بحسابك.
-• إشعار مميز داخل لوحة التحكم.
-
-استمرارك في استخدام الخدمة بعد أي تعديلات يُعدّ قبولاً منك للنسخة المحدَّثة من السياسة.`,
-    },
-    {
-      title: "١٢. التواصل معنا",
-      content: `إن كان لديك أي استفسار أو شكوى بشأن هذه السياسة أو ممارساتنا المتعلقة بالخصوصية، تواصل معنا:
-
-البريد الإلكتروني: info@rudood.com
-الموقع الإلكتروني: www.rudood.com
-
-سنسعى للرد على استفساراتك خلال ٤٨ ساعة عمل.`,
-    },
-  ];
-
   return (
-    <div className="min-h-screen" style={{ background: "linear-gradient(180deg, #060b1a 0%, #0a0f2e 100%)" }}>
-      {/* Header */}
-      <header
-        className="sticky top-0 z-50 border-b"
-        style={{
-          background: "rgba(6,11,26,0.9)",
-          backdropFilter: "blur(20px)",
-          borderColor: "rgba(255,255,255,0.08)",
-        }}
-      >
+    <div className="min-h-screen bg-night text-text-primary">
+      {/* Simple nav */}
+      <header className="border-b border-border bg-surface/50 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-              <Image src="/logo.png" alt="ردود" width={36} height={36} className="rounded-xl object-contain bg-white p-0.5 transition-transform duration-300 group-hover:scale-110" />
-            <span className="text-white font-extrabold text-xl">ردود</span>
+          <Link href="/">
+            <Logo size={32} showText={true} lang="ar" textClass="text-lg text-text-primary" />
           </Link>
-
-          {/* Back button */}
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-slate-300 font-semibold text-sm border border-white/10 hover:bg-white/5 hover:text-white hover:border-white/20 transition-all duration-200"
+            className="text-sm text-text-muted hover:text-text-primary transition-colors flex items-center gap-1"
           >
-            <ArrowRight size={16} />
+            <svg className="w-4 h-4 rtl:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
             العودة للرئيسية
           </Link>
         </div>
       </header>
 
-      {/* Page content */}
+      {/* Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
-        {/* Page hero */}
-        <div className="text-center mb-12">
-          <div
-            className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
-            style={{ background: "linear-gradient(135deg, #1d4ed8 0%, #7c3aed 50%, #06b6d4 100%)" }}
-          >
-            <Shield size={28} className="text-white" />
+        {/* Header */}
+        <div className="mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan/30 bg-cyan/5 text-cyan text-xs font-semibold mb-4">
+            آخر تحديث: أبريل 2026
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black text-white mb-4">
-            سياسة الخصوصية
-          </h1>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto leading-relaxed">
-            نلتزم بحماية خصوصيتك وبيانات عملائك بأعلى المعايير الأمنية
+          <h1 className="text-4xl font-black text-text-primary mb-4">سياسة الخصوصية</h1>
+          <p className="text-text-muted text-lg leading-relaxed">
+            في ردود، نُقدّر خصوصيتك ونلتزم بحماية بياناتك الشخصية وبيانات عملاءك. تشرح هذه السياسة
+            كيف نجمع المعلومات ونستخدمها ونحميها عند استخدام منصتنا المتكاملة مع واتساب وإنستغرام وماسنجر.
           </p>
-          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-slate-400 text-sm">
-            <span>آخر تحديث: {lastUpdated}</span>
-          </div>
         </div>
 
-        {/* Intro card */}
-        <div
-          className="p-6 rounded-2xl border mb-8"
-          style={{
-            background: "rgba(124,58,237,0.08)",
-            borderColor: "rgba(124,58,237,0.25)",
-          }}
-        >
-          <p className="text-slate-300 leading-relaxed text-base">
-            <strong className="text-white">مقدمة مهمة: </strong>
-            تصف هذه السياسة كيف تجمع منصة <strong className="text-purple-400">ردود</strong> البيانات وتستخدمها وتحميها. نحن نؤمن بأن الشفافية أساس الثقة، ونسعى دائماً للامتثال لأفضل ممارسات حماية البيانات وخصوصية المستخدم.
-          </p>
+        {/* Meta integration notice */}
+        <div className="mb-10 p-5 rounded-2xl border border-primary/30 bg-primary/5 flex items-start gap-4">
+          <svg className="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div>
+            <p className="text-text-primary font-semibold text-sm mb-1">تكامل مع منصات Meta</p>
+            <p className="text-text-muted text-sm leading-relaxed">
+              منصة ردود مُعتمدة كتطبيق Meta Business وتعمل وفق سياسات Meta الرسمية. نتعامل مع
+              رسائل واتساب وإنستغرام وماسنجر فقط لأغراض الرد الآلي المصرّح به من قِبلك.
+            </p>
+          </div>
         </div>
 
         {/* Sections */}
         <div className="space-y-6">
-          {sections.map((section, i) => (
+          {sections.map((section) => (
             <div
-              key={i}
-              className="p-6 sm:p-8 rounded-2xl border transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5"
-              style={{
-                background: "rgba(255,255,255,0.03)",
-                borderColor: "rgba(255,255,255,0.08)",
-              }}
+              key={section.title}
+              className="p-6 rounded-2xl border border-border bg-surface"
             >
-              <h2 className="text-lg sm:text-xl font-black text-white mb-4">
-                {section.title}
-              </h2>
-              <div className="space-y-3">
-                {section.content.split("\n\n").map((paragraph, j) => (
-                  <p
-                    key={j}
-                    className="text-slate-300 leading-relaxed whitespace-pre-line"
-                    dangerouslySetInnerHTML={{
-                      __html: paragraph
-                        .replace(/\*\*(.+?)\*\*/g, '<strong class="text-white">$1</strong>')
-                        .replace(/•/g, '<span style="color:#7c3aed">•</span>'),
-                    }}
-                  />
-                ))}
+              <h2 className="text-base font-black text-text-primary mb-3">{section.title}</h2>
+              <div className="text-text-muted text-sm leading-relaxed whitespace-pre-line">
+                {section.content}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Contact card */}
-        <div
-          className="mt-10 p-8 rounded-3xl border text-center"
-          style={{
-            background: "linear-gradient(135deg, rgba(29,78,216,0.1), rgba(124,58,237,0.1), rgba(6,182,212,0.1))",
-            borderColor: "rgba(124,58,237,0.3)",
-          }}
-        >
-          <div
-            className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4"
-            style={{ background: "linear-gradient(135deg, #1d4ed8, #7c3aed)" }}
-          >
-            <Mail size={24} className="text-white" />
-          </div>
-          <h3 className="text-xl font-black text-white mb-2">هل لديك سؤال؟</h3>
-          <p className="text-slate-400 mb-5">
-            فريقنا جاهز للإجابة على أي استفسار بشأن خصوصيتك
+        {/* Footer note */}
+        <div className="mt-12 p-6 rounded-2xl border border-primary/20 bg-primary/5 text-center">
+          <p className="text-text-muted text-sm">
+            هذه السياسة سارية اعتباراً من أبريل 2026. لأي استفسار:{" "}
+            <a href="mailto:privacy@rudood.app" className="text-cyan hover:underline">
+              privacy@rudood.app
+            </a>
           </p>
-          <a
-            href="mailto:info@rudood.com"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-bold transition-all duration-300 hover:scale-105"
-            style={{ background: "linear-gradient(135deg, #1d4ed8, #7c3aed)" }}
-          >
-            <Mail size={18} />
-            info@rudood.com
-          </a>
         </div>
-
-        {/* Footer links */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4 text-sm text-slate-500">
-          <Link href="/terms" className="hover:text-slate-300 transition-colors">شروط الخدمة</Link>
-          <span>•</span>
-          <Link href="/data-deletion" className="hover:text-slate-300 transition-colors">حذف البيانات</Link>
-          <span>•</span>
-          <Link href="/" className="hover:text-slate-300 transition-colors">الرئيسية</Link>
-        </div>
-
-        {/* Footer copyright */}
-        <p className="text-center text-slate-600 text-sm mt-8">
-          © {new Date().getFullYear()} ردود. جميع الحقوق محفوظة.
-        </p>
       </main>
     </div>
   );

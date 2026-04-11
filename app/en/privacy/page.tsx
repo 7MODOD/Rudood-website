@@ -1,246 +1,219 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowLeft, Shield, Mail } from "lucide-react";
+import Logo from "@/components/Logo";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Rudood",
+  description:
+    "Privacy policy and data protection for Rudood platform — AI-powered customer service automation via WhatsApp, Instagram & Messenger.",
+};
+
+const sections = [
+  {
+    title: "1. About the Service",
+    content: `Rudood is a customer service automation platform powered by GPT-4o. The platform operates through a Meta Business application integrated with Meta Business APIs, enabling it to receive and automatically respond to messages across:
+
+• WhatsApp Business (WhatsApp Business Platform)
+• Instagram (Instagram Messaging API)
+• Facebook Messenger (Messenger Platform)
+
+When you connect your account to Rudood, you grant us access to your customers' conversations on these platforms for the purpose of responding automatically on your behalf.`,
+  },
+  {
+    title: "2. Data We Collect",
+    content: `a) Business owner data (client):
+• Full name, email address, phone number
+• Business name and information
+• Product details, pricing, and policies you provide for AI training
+• Account and subscription data
+
+b) Your customers' data (end users):
+• Messages sent by your customers via WhatsApp, Instagram, or Messenger
+• Conversation identifiers (User IDs) linked to Meta platforms
+• Message timestamps
+• We do not collect personal data of end users beyond what they voluntarily share in conversation
+
+c) Usage data:
+• Message statistics and response times
+• Technical information (IP, browser, device type) for security purposes`,
+  },
+  {
+    title: "3. How We Use Data",
+    content: `We use collected data for specific purposes only:
+
+• Operating the AI-powered auto-reply service on your behalf
+• Training and fine-tuning the AI model on your business specifics (products, tone, policies)
+• Processing incoming messages via Meta APIs and sending responses
+• Improving response quality and platform performance
+• Sending technical notifications and service updates
+• Providing technical support when needed
+
+We do not use your customers' conversations for any marketing or commercial purpose outside the agreed service scope.`,
+  },
+  {
+    title: "4. Meta Business API & Meta Policy Compliance",
+    content: `Rudood is integrated with the Meta Business Platform and operates in accordance with Meta's terms of use and policies, including:
+
+• Meta Platform Terms (Meta Developer Data Policy)
+• WhatsApp Business Policy
+• Messenger Platform Terms of Service
+• Instagram Messaging API requirements
+
+We comply with the following restrictions imposed by Meta:
+• We do not use user data for targeted advertising purposes
+• We do not sell or share user data with any third party for commercial purposes
+• We restrict access to conversation data to our staff and technical systems only
+• We retain data only for the duration necessary to operate the service
+
+Data processing via Meta is also subject to Meta's Privacy Policy available at: https://www.facebook.com/policy`,
+  },
+  {
+    title: "5. Data Sharing",
+    content: `We do not sell or rent your data. We share data only in these cases:
+
+• Technical service providers: OpenAI (AI processing), n8n (workflow automation), Chatwoot (conversation management), hosting services — all committed to not using your data for purposes outside the service scope
+• Meta Platforms: We exchange messages with Meta platforms (WhatsApp / Instagram / Messenger) within the authorized technical integration framework
+• Legal authorities: When legally required by court order or official government request
+• With your explicit prior consent in any other case`,
+  },
+  {
+    title: "6. Data Security",
+    content: `We implement multi-layered security measures:
+
+• Full data encryption in transit (TLS 1.3) and at rest (AES-256)
+• Access control based on the principle of least privilege
+• Isolation of each client's data from others in independent environments
+• Regular security reviews and penetration testing
+• Encrypted and regular backups
+• Audit logs for all data access operations`,
+  },
+  {
+    title: "7. Data Retention & Deletion",
+    content: `• Account data: retained as long as your account is active
+• Conversation logs: stored for 12 months by default, extendable or reducible by request
+• Training data: deleted or cleaned upon subscription cancellation
+
+Upon account closure:
+• Conversation data is deleted within 30 business days
+• Training data is deleted within 60 business days
+• We retain what is legally required (e.g., invoices) per regulatory requirements
+
+You may request immediate deletion of your data at any time via email.`,
+  },
+  {
+    title: "8. Your Rights",
+    content: `You have the right to:
+
+• Access: Obtain a copy of the personal data we hold about you
+• Rectification: Correct any inaccurate information
+• Erasure: Request deletion of your data ("right to be forgotten"), subject to legal requirements
+• Restriction: Object to the use of your data for certain purposes
+• Portability: Receive your data in a machine-readable format
+• Withdrawal of consent: Revoke Meta account access permissions at any time
+
+To exercise any of these rights, contact us at: privacy@rudood.app`,
+  },
+  {
+    title: "9. Children's Privacy",
+    content: `Our services are directed exclusively to businesses and adults (18 years of age and older). We do not knowingly collect data from minors. If we discover that a minor's data was accidentally collected, we will delete it immediately and notify the guardian if possible.`,
+  },
+  {
+    title: "10. Changes to This Policy",
+    content: `We may update this policy to reflect legal or technical changes. Upon update:
+
+• We will notify you via your registered email at least 30 days before material changes take effect
+• We will display a clear notice in the dashboard
+• We will archive previous versions of the policy
+
+Your continued use of the service after an update constitutes acceptance of the revised policy.`,
+  },
+  {
+    title: "11. Contact & Complaints",
+    content: `For any questions, inquiries, or complaints related to your privacy:
+
+📧 Email: privacy@rudood.app
+💬 WhatsApp: Contact us through the website
+🌐 Website: rudood.app
+
+We are committed to responding to all privacy-related inquiries within 72 business hours.`,
+  },
+];
 
 export default function EnPrivacyPage() {
-  const lastUpdated = "March 2026";
-
-  const sections = [
-    {
-      title: "1. Introduction & Acceptance",
-      content: `Welcome to Rudood ("the Company," "we," "our," "us"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use the Rudood platform for customer service automation across WhatsApp, Instagram, and Messenger.
-
-By using our Service, you agree to the terms of this Policy. If you do not agree, please discontinue use of the Service.`,
-    },
-    {
-      title: "2. Information We Collect",
-      content: `We collect several types of information to operate and improve our Service:
-
-**Account Information:** Name, email address, phone number, and company or store name provided during registration.
-
-**Conversation Data:** Content of messages exchanged between your customers and the AI assistant via WhatsApp, Instagram, and Messenger. This data is used exclusively to operate the Service and improve response quality.
-
-**Usage Data:** Information about how you interact with the platform, including the number of messages processed, response times, and features used.
-
-**Technical Data:** IP address, browser type, log data, and information required to maintain security and diagnose issues.`,
-    },
-    {
-      title: "3. How We Use Your Information",
-      content: `We use the information we collect for the following purposes:
-
-• **Operating the Service:** Processing incoming messages and generating appropriate AI responses on your behalf.
-• **Improving AI Models:** Training and refining language models to enhance response quality and accuracy — only after removing any personally identifiable information.
-• **Communicating With You:** Sending service notifications, updates, and promotional communications you have opted into.
-• **Technical Support:** Diagnosing and resolving technical issues.
-• **Legal Compliance:** Fulfilling our legal and regulatory obligations.`,
-    },
-    {
-      title: "4. AI Conversation Processing",
-      content: `Rudood's service relies on AI processing of text conversations. Please be aware of the following:
-
-• Incoming messages from your customers are sent to AI models to generate appropriate replies.
-• Conversation data may be used — after anonymization — to improve the quality of language models.
-• You have the right to opt out of having your conversation data used for training purposes by contacting us directly.
-• We minimize the data processed to what is strictly necessary to deliver the Service.`,
-    },
-    {
-      title: "5. Data Sharing With Third Parties",
-      content: `We integrate with Meta platforms (WhatsApp, Instagram, Messenger) and comply with their policies. We share data with third parties only in the following cases:
-
-**Service Providers:** Trusted operational partners who help deliver our Service (server providers, data analytics) and are bound by strict data processing agreements.
-
-**Meta Platforms:** As required by WhatsApp Business API, Instagram Graph API, and Messenger Platform terms of service.
-
-**Legal Authorities:** When legally required or ordered by a competent court.
-
-**We never sell your personal data to any third party under any circumstances.**`,
-    },
-    {
-      title: "6. Security & Data Protection",
-      content: `We implement strict security measures to protect your data:
-
-• **Encryption:** All data is encrypted in transit using TLS 1.3, and at rest using AES-256 standards.
-• **Access Controls:** Least-privilege access with multi-factor authentication enforced.
-• **Monitoring:** Continuous security monitoring to detect unauthorized activity.
-• **Backups:** Regular backups to ensure service continuity.
-
-That said, no method of transmission over the Internet is 100% secure. We encourage you to take appropriate precautions on your end as well.`,
-    },
-    {
-      title: "7. Your Rights",
-      content: `You have the right to:
-
-• **Access:** Request a copy of the personal data we hold about you.
-• **Rectification:** Request correction of any inaccurate data.
-• **Erasure:** Request deletion of your personal data, subject to legal requirements.
-• **Objection:** Object to processing of your data for certain purposes.
-• **Portability:** Request your data in a machine-readable format.
-• **Opt-Out:** Unsubscribe from marketing communications at any time.
-
-To exercise these rights, contact us at: info@rudood.com`,
-    },
-    {
-      title: "8. Data Retention",
-      content: `We retain your personal data for the duration of your subscription. After account cancellation:
-
-• Active conversation data is deleted within 30 days.
-• Account records required for legal compliance are retained as mandated by applicable regulations.
-• You may request immediate deletion of your data by contacting us directly.`,
-    },
-    {
-      title: "9. Cookies & Similar Technologies",
-      content: `We use cookies and similar technologies to improve your experience:
-
-• **Essential:** Required for the website and Service to function properly.
-• **Performance:** Help us understand how the site is used so we can improve it.
-• **Preferences:** Remember your settings and customizations.
-
-You can control cookies through your browser settings. Note that disabling certain cookies may affect some website functionality.`,
-    },
-    {
-      title: "10. Children's Privacy",
-      content: `Rudood is designed for businesses and merchants and we do not intentionally collect personal data from individuals under the age of 18. If we discover that we have collected data from a minor, we will take immediate steps to delete it.`,
-    },
-    {
-      title: "11. Changes to This Policy",
-      content: `We reserve the right to update this Policy at any time. If we make material changes, we will notify you via:
-• The email address associated with your account.
-• A prominent notice within the dashboard.
-
-Your continued use of the Service after any changes constitutes acceptance of the updated Policy.`,
-    },
-    {
-      title: "12. Contact Us",
-      content: `If you have any questions or concerns about this Policy or our privacy practices, please reach out:
-
-Email: info@rudood.com
-Website: www.rudood.com
-
-We aim to respond to all inquiries within 48 business hours.`,
-    },
-  ];
-
   return (
-    <div className="min-h-screen" style={{ background: "linear-gradient(180deg, #060b1a 0%, #0a0f2e 100%)" }}>
-      {/* Header */}
-      <header
-        className="sticky top-0 z-50 border-b"
-        style={{ background: "rgba(6,11,26,0.9)", backdropFilter: "blur(20px)", borderColor: "rgba(255,255,255,0.08)" }}
-      >
+    <div className="min-h-screen bg-night text-text-primary">
+      {/* Simple nav */}
+      <header className="border-b border-border bg-surface/50 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/en" className="flex items-center gap-3 group">
-            <Image src="/logo.png" alt="Rudood" width={36} height={36} className="rounded-xl object-contain bg-white p-0.5 transition-transform duration-300 group-hover:scale-110" />
-            <span className="text-white font-extrabold text-xl">Rudood</span>
+          <Link href="/en">
+            <Logo size={32} showText={true} lang="en" textClass="text-lg text-text-primary" />
           </Link>
-
-          {/* Back button */}
           <Link
             href="/en"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-slate-300 font-semibold text-sm border border-white/10 hover:bg-white/5 hover:text-white hover:border-white/20 transition-all duration-200"
+            className="text-sm text-text-muted hover:text-text-primary transition-colors flex items-center gap-1"
           >
-            <ArrowLeft size={16} />
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
             Back to Home
           </Link>
         </div>
       </header>
 
-      {/* Page content */}
+      {/* Content */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
-        {/* Hero */}
-        <div className="text-center mb-12">
-          <div
-            className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
-            style={{ background: "linear-gradient(135deg, #1d4ed8 0%, #7c3aed 50%, #06b6d4 100%)" }}
-          >
-            <Shield size={28} className="text-white" />
+        {/* Header */}
+        <div className="mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan/30 bg-cyan/5 text-cyan text-xs font-semibold mb-4">
+            Last updated: April 2026
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black text-white mb-4">Privacy Policy</h1>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto leading-relaxed">
-            We are committed to protecting your privacy and your customers&apos; data to the highest security standards.
+          <h1 className="text-4xl font-black text-text-primary mb-4">Privacy Policy</h1>
+          <p className="text-text-muted text-lg leading-relaxed">
+            At Rudood, we value your privacy and are committed to protecting your personal data and your
+            customers&apos; data. This policy explains how we collect, use, and protect information when you
+            use our platform integrated with WhatsApp, Instagram, and Messenger.
           </p>
-          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-slate-400 text-sm">
-            <span>Last updated: {lastUpdated}</span>
-          </div>
         </div>
 
-        {/* Intro card */}
-        <div
-          className="p-6 rounded-2xl border mb-8"
-          style={{ background: "rgba(124,58,237,0.08)", borderColor: "rgba(124,58,237,0.25)" }}
-        >
-          <p className="text-slate-300 leading-relaxed text-base">
-            <strong className="text-white">Important Notice: </strong>
-            This Policy describes how <strong className="text-purple-400">Rudood</strong> collects, uses, and protects your data. We believe transparency is the foundation of trust and strive to comply with the best data protection and user privacy practices at all times.
-          </p>
+        {/* Meta integration notice */}
+        <div className="mb-10 p-5 rounded-2xl border border-primary/30 bg-primary/5 flex items-start gap-4">
+          <svg className="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div>
+            <p className="text-text-primary font-semibold text-sm mb-1">Meta Platform Integration</p>
+            <p className="text-text-muted text-sm leading-relaxed">
+              Rudood is an approved Meta Business application operating in accordance with official Meta
+              policies. We handle WhatsApp, Instagram, and Messenger messages solely for the purpose of
+              authorized automated replies on your behalf.
+            </p>
+          </div>
         </div>
 
         {/* Sections */}
         <div className="space-y-6">
-          {sections.map((section, i) => (
+          {sections.map((section) => (
             <div
-              key={i}
-              className="p-6 sm:p-8 rounded-2xl border transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/5"
-              style={{ background: "rgba(255,255,255,0.03)", borderColor: "rgba(255,255,255,0.08)" }}
+              key={section.title}
+              className="p-6 rounded-2xl border border-border bg-surface"
             >
-              <h2 className="text-lg sm:text-xl font-black text-white mb-4">{section.title}</h2>
-              <div className="space-y-3">
-                {section.content.split("\n\n").map((paragraph, j) => (
-                  <p
-                    key={j}
-                    className="text-slate-300 leading-relaxed whitespace-pre-line"
-                    dangerouslySetInnerHTML={{
-                      __html: paragraph
-                        .replace(/\*\*(.+?)\*\*/g, '<strong class="text-white">$1</strong>')
-                        .replace(/•/g, '<span style="color:#7c3aed">•</span>'),
-                    }}
-                  />
-                ))}
+              <h2 className="text-base font-black text-text-primary mb-3">{section.title}</h2>
+              <div className="text-text-muted text-sm leading-relaxed whitespace-pre-line">
+                {section.content}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Contact card */}
-        <div
-          className="mt-10 p-8 rounded-3xl border text-center"
-          style={{
-            background: "linear-gradient(135deg, rgba(29,78,216,0.1), rgba(124,58,237,0.1), rgba(6,182,212,0.1))",
-            borderColor: "rgba(124,58,237,0.3)",
-          }}
-        >
-          <div
-            className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4"
-            style={{ background: "linear-gradient(135deg, #1d4ed8, #7c3aed)" }}
-          >
-            <Mail size={24} className="text-white" />
-          </div>
-          <h3 className="text-xl font-black text-white mb-2">Have a Question?</h3>
-          <p className="text-slate-400 mb-5">Our team is ready to answer any question about your privacy</p>
-          <a
-            href="mailto:info@rudood.com"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-bold transition-all duration-300 hover:scale-105"
-            style={{ background: "linear-gradient(135deg, #1d4ed8, #7c3aed)" }}
-          >
-            <Mail size={18} />
-            info@rudood.com
-          </a>
+        {/* Footer note */}
+        <div className="mt-12 p-6 rounded-2xl border border-primary/20 bg-primary/5 text-center">
+          <p className="text-text-muted text-sm">
+            This policy is effective as of April 2026. For any inquiries:{" "}
+            <a href="mailto:privacy@rudood.app" className="text-cyan hover:underline">
+              privacy@rudood.app
+            </a>
+          </p>
         </div>
-
-        {/* Footer links */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4 text-sm text-slate-500">
-          <Link href="/en/terms" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
-          <span>•</span>
-          <Link href="/en/data-deletion" className="hover:text-slate-300 transition-colors">Data Deletion</Link>
-          <span>•</span>
-          <Link href="/en" className="hover:text-slate-300 transition-colors">Home</Link>
-        </div>
-
-        <p className="text-center text-slate-600 text-sm mt-8">
-          © {new Date().getFullYear()} Rudood. All rights reserved.
-        </p>
       </main>
     </div>
   );
