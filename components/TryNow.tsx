@@ -41,9 +41,11 @@ export default function TryNow() {
   const lastIdRef     = useRef<number>(0);
   const pollRef       = useRef<ReturnType<typeof setInterval> | null>(null);
   const bottomRef     = useRef<HTMLDivElement>(null);
+  const hasInteracted = useRef(false);
 
-  /* scroll to bottom on new messages */
+  /* scroll to bottom only after user sends first message */
   useEffect(() => {
+    if (!hasInteracted.current) return;
     bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }, [msgs, status]);
 
@@ -62,16 +64,20 @@ export default function TryNow() {
       headers: { "Content-Type": "application/json" },
       body:    JSON.stringify({ name: "زائر الموقع", identifier: visitorId }),
     });
+    if (!cRes.ok) throw new Error(`contacts ${cRes.status}`);
     const cData = await cRes.json();
     const contactId: string = cData.source_id;
+    if (!contactId) throw new Error("source_id missing — check CHATWOOT_INBOX_ID");
 
     // 2. create conversation
     const vRes  = await fetch(`${PUB}/contacts/${contactId}/conversations`, {
       method:  "POST",
       headers: { "Content-Type": "application/json" },
     });
+    if (!vRes.ok) throw new Error(`conversations ${vRes.status}`);
     const vData = await vRes.json();
     const convId: number = vData.id;
+    if (!convId) throw new Error("conversation id missing");
 
     const session: Session = { contactId, convId };
     sessionRef.current = session;
@@ -120,6 +126,7 @@ export default function TryNow() {
   const send = async () => {
     const text = input.trim();
     if (!text || status === "sending") return;
+    hasInteracted.current = true;
     setInput("");
     setStatus("sending");
     setMsgs(prev => [...prev, { from: "user", text, time: clock() }]);
