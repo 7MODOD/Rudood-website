@@ -23,7 +23,6 @@ export default function Home() {
       <ContactForm />
       <FAQ />
       <Footer />
-      <LiveChat />
     </main>
   );
 }
