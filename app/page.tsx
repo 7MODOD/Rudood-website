@@ -8,7 +8,6 @@ import Pricing from "@/components/Pricing";
 import ContactForm from "@/components/ContactForm";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
-import LiveChat from "@/components/LiveChat";
 
 export default function Home() {
   return (
@@ -23,7 +22,6 @@ export default function Home() {
       <ContactForm />
       <FAQ />
       <Footer />
-      <LiveChat />
     </main>
   );
 }

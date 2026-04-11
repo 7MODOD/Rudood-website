@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const sections = [
   {
     title: "1. About the Service",
-    content: `Rudood is a customer service automation platform powered by GPT-4o. The platform operates through a Meta Business application integrated with Meta Business APIs, enabling it to receive and automatically respond to messages across:
+    content: `Rudood is a customer service automation platform powered by advanced AI models from OpenAI (such as GPT-4o mini). The platform operates through a Meta Business application integrated with Meta Business APIs, enabling it to receive and automatically respond to messages across:
 
 • WhatsApp Business (WhatsApp Business Platform)
 • Instagram (Instagram Messaging API)
@@ -71,7 +71,7 @@ Data processing via Meta is also subject to Meta's Privacy Policy available at: 
     title: "5. Data Sharing",
     content: `We do not sell or rent your data. We share data only in these cases:
 
-• Technical service providers: OpenAI (AI processing), n8n (workflow automation), Chatwoot (conversation management), hosting services — all committed to not using your data for purposes outside the service scope
+• Technical service providers: OpenAI (for language processing and AI), and our certified hosting and cloud process automation providers — all committed to not using your data for purposes outside the service scope
 • Meta Platforms: We exchange messages with Meta platforms (WhatsApp / Instagram / Messenger) within the authorized technical integration framework
 • Legal authorities: When legally required by court order or official government request
 • With your explicit prior consent in any other case`,
@@ -85,7 +85,8 @@ Data processing via Meta is also subject to Meta's Privacy Policy available at: 
 • Isolation of each client's data from others in independent environments
 • Regular security reviews and penetration testing
 • Encrypted and regular backups
-• Audit logs for all data access operations`,
+• Audit logs for all data access operations
+• Data is processed and hosted on private, independent self-managed cloud servers (VPS) to ensure the highest levels of control and isolation of customer data`,
   },
   {
     title: "7. Data Retention & Deletion",
@@ -98,7 +99,9 @@ Upon account closure:
 • Training data is deleted within 60 business days
 • We retain what is legally required (e.g., invoices) per regulatory requirements
 
-You may request immediate deletion of your data at any time via email.`,
+You may request immediate deletion of your data at any time via email.
+
+In accordance with Meta's policies, users may request complete erasure of their data by contacting us via email, and the request will be fulfilled within a maximum of 30 days.`,
   },
   {
     title: "8. Your Rights",
@@ -136,6 +139,10 @@ Your continued use of the service after an update constitutes acceptance of the 
 🌐 Website: rudood.app
 
 We are committed to responding to all privacy-related inquiries within 72 business hours.`,
+  },
+  {
+    title: "12. Governing Law",
+    content: `This policy is governed by and interpreted in accordance with the laws and legislation in force in the State of Palestine. In the event of any dispute, jurisdiction shall lie with the Palestinian courts.`,
   },
 ];
 
