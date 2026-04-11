@@ -1,4 +1,8 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
 
 @theme inline {
   /* === Brand Colors (from logo: Blue → Purple → Cyan) === */
@@ -175,3 +179,53 @@ body {
     z-index: -1;
   }
 }
+
+/* Marquee — infinite on all screen sizes */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* RTL pages: scroll right-to-left (same visual result) */
+@keyframes marquee-rtl {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+/* The overflow wrapper — MUST be on the parent div */
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  /* Fade edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.marquee-inner {
+  animation: marquee 30s linear infinite;
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* For RTL pages wrap with .marquee-wrapper-rtl */
+.marquee-wrapper-rtl {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to left, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.marquee-inner-rtl {
+  animation: marquee-rtl 30s linear infinite;
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Pause on hover */
+.marquee-wrapper:hover .marquee-inner,
+.marquee-wrapper-rtl:hover .marquee-inner-rtl {
+  animation-play-state: paused;
+}
+
