@@ -108,7 +108,7 @@ export default function HeroSection() {
                 ابدأ الآن              
                 </a>
               <a
-                href="#cases"
+                href="#try"
                 className="flex items-center gap-3 px-8 py-4 rounded-full border border-border text-text-muted hover:text-text-primary hover:border-border-light transition-all duration-200 font-medium text-lg group"
               >
                 <span className="w-9 h-9 rounded-full bg-surface-2 flex items-center justify-center group-hover:bg-primary/10 transition-colors">

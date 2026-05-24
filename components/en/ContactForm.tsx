@@ -2,14 +2,6 @@
 
 import { useState } from "react";
 
-const messageOptions = [
-  { value: "", label: "Select expected monthly messages" },
-  { value: "less-1500", label: "Less than 1,500 messages" },
-  { value: "1500-5000", label: "1,500 – 5,000 messages" },
-  { value: "5000-10000", label: "5,000 – 10,000 messages" },
-  { value: "more-10000", label: "More than 10,000 messages" },
-];
-
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -144,23 +136,18 @@ export default function ContactForm() {
               />
             </div>
 
-            {/* Monthly Messages */}
+            {/* Business Description */}
             <div>
               <label className="block text-sm font-semibold text-text-primary mb-1.5">
-                Expected Monthly Messages <span className="text-red-400">*</span>
+                Describe your business <span className="text-red-400">*</span>
               </label>
-              <select
-                name="expectedMessages"
+              <textarea
+                name="businessDescription"
                 required
-                defaultValue=""
-                className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all text-sm appearance-none cursor-pointer"
-              >
-                {messageOptions.map((opt) => (
-                  <option key={opt.value} value={opt.value} disabled={opt.value === ""} selected={opt.value === ""}>
-                    {opt.label}
-                  </option>
-                ))}
-              </select>
+                rows={4}
+                placeholder="Tell us about your store or business: what do you sell, who are your customers, and which platforms do you receive messages on?"
+                className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder-text-faint focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all text-sm resize-y"
+              />
             </div>
 
             {/* Submit */}
