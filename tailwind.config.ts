@@ -13,11 +13,47 @@ const config: Config = {
         cairo: ["Cairo", "sans-serif"],
       },
       colors: {
+        // === Brand Colors (from logo: Blue → Purple → Cyan) ===
+        primary: {
+          DEFAULT: "#2563EB",
+          dark: "#1D4ED8",
+        },
+        purple: "#7C3AED",
+        cyan: {
+          DEFAULT: "#06B6D4",
+          light: "#22D3EE",
+        },
+
+        // === Background Scale ===
+        night: "#070C18",
+        surface: {
+          DEFAULT: "#0D1628",
+          2: "#141E38",
+        },
+        "surface-2": "#141E38",
+        "surface-night": "#070C18",
+        border: {
+          DEFAULT: "#1E2A42",
+          light: "#243252",
+        },
+        "border-light": "#243252",
+
+        // === Text Scale ===
+        "text-primary": "#F0F2FF",
+        "text-muted": "#8B9BC8",
+        "text-faint": "#4A5878",
+
+        // === Legacy brand aliases (used by some components) ===
         brand: {
           blue: "#1d4ed8",
           purple: "#7c3aed",
           teal: "#06b6d4",
         },
+        gold: {
+          DEFAULT: "#2563EB",
+          light: "#3B82F6",
+        },
+        teal: "#06B6D4",
       },
       animation: {
         "gradient-shift": "gradientShift 12s ease infinite",
