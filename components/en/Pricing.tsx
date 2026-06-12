@@ -15,7 +15,7 @@ type PricingTier = {
 
 const tiers: PricingTier[] = [
   {
-    name: "Reply & Connect",
+    name: "Basic",
     subtitle: "For solo operators & single locations",
     price: "290",
     period: "/ month",
@@ -23,7 +23,7 @@ const tiers: PricingTier[] = [
     setup: "Setup fee: ₪400 one-time",
     features: [
       "Smart replies on FAQs & business info",
-      "Connect 1 platform (WhatsApp, Instagram, or Messenger)",
+      "Connect all 3 platforms (WhatsApp + Instagram + Messenger)",
       "Basic order & inquiry logging",
       "Multi-language replies (Arabic / English / Hebrew)",
       "Smart handoff to a human agent when needed",
@@ -31,36 +31,35 @@ const tiers: PricingTier[] = [
       "Video & PDF training (with ready templates)",
       "Standard technical support",
     ],
-    cta: "Start with Reply & Connect",
+    cta: "Start with Basic",
   },
   {
-    name: "Sell & Operate",
+    name: "Advanced",
     subtitle: "For stores running orders & payments",
     price: "790",
     period: "/ month",
     messages: "Unlimited conversations · no counter",
     setup: "Setup fee: ₪700 one-time",
     features: [
-      "Everything in Reply & Connect",
-      "Connect all 3 platforms (WhatsApp + Messenger + Instagram)",
+      "Everything in Basic",
+      "Connect 4 channels (WhatsApp + Messenger + Instagram + website)",
       "Advanced order logging via Google Sheets",
       "Order tracking by product code or order number",
       "Image & payment receipt recognition (Vision AI)",
       "Voice interaction (receive, analyze & reply with voice)",
       "Live human agent handoff",
-      "Up to 3 human seats (extra seat ₪100/month)",
-      "Free weekly catalog updates",
+      "Up to 3 human seats (extra seat ₪50/month)",
       "2 training sessions with personal follow-up",
       "24/7 dedicated support",
     ],
-    cta: "Start with Sell & Operate",
+    cta: "Start with Advanced",
     isPopular: true,
     priceColor: "text-gradient-brand",
   },
 ];
 
 const enterpriseFeatures: string[] = [
-  "Everything in Sell & Operate",
+  "Everything in Advanced",
   "Smart conversation routing (sales / complaints / support)",
   "Unlimited human seats",
   "Custom API integration with your internal systems",
