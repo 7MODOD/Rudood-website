@@ -15,64 +15,54 @@ type PricingTier = {
 
 const tiers: PricingTier[] = [
   {
-    name: "Starter",
-    subtitle: "For growing stores",
-    price: "199",
+    name: "Reply & Connect",
+    subtitle: "For solo operators & single locations",
+    price: "290",
     period: "/ month",
-    messages: "Unlimited conversations",
-    setup: "Setup fee: ₪300 one-time",
+    messages: "Unlimited conversations · no counter",
+    setup: "Setup fee: ₪400 one-time",
     features: [
-      "Auto-replies to FAQs & business info",
-      "Basic order logging",
-      "Connect 1 platform (WhatsApp, Facebook, or Instagram)",
-      "Video & PDF training materials",
+      "Smart replies on FAQs & business info",
+      "Connect 1 platform (WhatsApp, Instagram, or Messenger)",
+      "Basic order & inquiry logging",
+      "Multi-language replies (Arabic / English / Hebrew)",
+      "Smart handoff to a human agent when needed",
+      "1 human seat for handoff & follow-up",
+      "Video & PDF training (with ready templates)",
       "Standard technical support",
     ],
-    cta: "Start with Starter",
+    cta: "Start with Reply & Connect",
   },
   {
-    name: "Advanced",
-    subtitle: "For active stores",
-    price: "499",
+    name: "Sell & Operate",
+    subtitle: "For stores running orders & payments",
+    price: "790",
     period: "/ month",
-    messages: "Unlimited conversations",
-    setup: "Setup fee: ₪300 one-time",
+    messages: "Unlimited conversations · no counter",
+    setup: "Setup fee: ₪700 one-time",
     features: [
-      "Everything in Starter",
+      "Everything in Reply & Connect",
+      "Connect all 3 platforms (WhatsApp + Messenger + Instagram)",
       "Advanced order logging via Google Sheets",
       "Order tracking by product code or order number",
-      "Connect all 3 platforms (WhatsApp + Messenger + Instagram)",
-      "Live agent handoff",
-      "Free monthly data updates",
-      "1-hour live online training",
-      "24/7 dedicated support",
-    ],
-    cta: "Start with Advanced",
-    isPopular: true,
-    priceColor: "text-gradient-brand",
-  },
-  {
-    name: "Pro",
-    subtitle: "For high performance",
-    price: "990",
-    period: "/ month",
-    messages: "Unlimited conversations",
-    setup: "Setup fee: Free",
-    features: [
-      "Everything in Advanced",
-      "Voice interaction (receive, analyze & reply with voice)",
       "Image & payment receipt recognition (Vision AI)",
-      "Multi-language replies (Arabic / English / Hebrew)",
+      "Voice interaction (receive, analyze & reply with voice)",
+      "Live human agent handoff",
+      "Up to 3 human seats (extra seat ₪100/month)",
       "Free weekly catalog updates",
       "2 training sessions with personal follow-up",
       "24/7 dedicated support",
     ],
-    cta: "Start with Pro",
+    cta: "Start with Sell & Operate",
+    isPopular: true,
+    priceColor: "text-gradient-brand",
   },
 ];
 
 const enterpriseFeatures: string[] = [
+  "Everything in Sell & Operate",
   "Smart conversation routing (sales / complaints / support)",
+  "Unlimited human seats",
   "Custom API integration with your internal systems",
   "Complex workflow automation",
   "Persona engineering matching your company culture",
@@ -105,8 +95,8 @@ export default function Pricing() {
           </p>
         </div>
 
-        {/* Pricing Cards — 3 self-serve tiers */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        {/* Pricing Cards — 2 self-serve tiers */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start max-w-4xl mx-auto">
           {tiers.map((tier) => (
             <div
               key={tier.name}
@@ -210,20 +200,15 @@ export default function Pricing() {
                 {/* Price */}
                 <div>
                   <p className="text-text-faint text-xs uppercase tracking-widest mb-2">
-                    Subscription starts from
+                    Custom pricing
                   </p>
-                  <div className="flex items-end gap-1">
-                    <span className="text-text-muted text-xl font-medium">₪</span>
-                    <span className="text-6xl font-black leading-none text-amber-400">
-                      2990
+                  <div className="flex items-end gap-2">
+                    <span className="text-4xl lg:text-5xl font-black leading-none text-amber-400">
+                      Per project
                     </span>
-                    <span className="text-text-muted text-base mb-2">/ month</span>
                   </div>
-                  <p className="text-text-faint text-sm mt-2">
-                    Setup fee:{" "}
-                    <span className="text-text-muted font-bold">
-                      ₪2,000 – ₪3,000
-                    </span>
+                  <p className="text-text-faint text-sm mt-3">
+                    Quote based on branches, headcount, and internal systems involved.
                   </p>
                 </div>
 
@@ -255,9 +240,14 @@ export default function Pricing() {
         </div>
 
         {/* Bottom note */}
-        <p className="text-center text-text-faint text-sm mt-12">
-          All prices in ILS · Monthly billing · Cancel anytime
-        </p>
+        <div className="text-center mt-12 space-y-2">
+          <p className="text-text-faint text-sm">
+            All prices in ILS · Monthly prepaid billing · Cancel anytime
+          </p>
+          <p className="text-text-faint text-xs">
+            WhatsApp message fees (Meta charges) are billed directly to the customer — Rudood takes no commission on them.
+          </p>
+        </div>
       </div>
     </section>
   );

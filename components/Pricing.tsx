@@ -15,68 +15,58 @@ type PricingTier = {
 
 const tiers: PricingTier[] = [
   {
-    name: "البداية",
-    subtitle: "للمتاجر الناشئة",
-    price: "199",
+    name: "رد وتواصل",
+    subtitle: "للموظف أو الفرع الواحد",
+    price: "290",
     period: "شهرياً",
-    messages: "محادثات غير محدودة",
-    setup: "رسوم تأسيس: 300 ₪ لمرة واحدة",
+    messages: "محادثات غير محدودة · بدون عدّاد",
+    setup: "رسوم تأسيس: 400 ₪ لمرة واحدة",
     features: [
-      "رد آلي على الأسئلة الشائعة ومعلومات البزنس",
-      "تسجيل أساسي للطلبات",
-      "ربط منصة واحدة (واتساب أو فيسبوك أو إنستغرام)",
-      "تدريب عبر فيديوهات وملف PDF",
+      "رد ذكي على الأسئلة الشائعة ومعلومات البزنس",
+      "ربط منصة واحدة (واتساب أو إنستغرام أو ماسنجر)",
+      "تسجيل أساسي للطلبات والاستفسارات",
+      "ردود متعددة اللغات (عربي/إنجليزي/عبري)",
+      "تحويل ذكي لموظف بشري عند الحاجة",
+      "مستخدم بشري واحد للاستلام والمتابعة",
+      "تدريب عبر فيديو وملف PDF (قوالب جاهزة)",
       "دعم فني قياسي",
     ],
-    cta: "ابدأ بالبداية",
+    cta: "ابدأ برد وتواصل",
   },
   {
-    name: "المتقدمة",
-    subtitle: "للمتاجر النشطة",
-    price: "499",
+    name: "بيع وتشغيل",
+    subtitle: "للمتاجر بطلبات ودفعات",
+    price: "790",
     period: "شهرياً",
-    messages: "محادثات غير محدودة",
-    setup: "رسوم تأسيس: 300 ₪ لمرة واحدة",
+    messages: "محادثات غير محدودة · بدون عدّاد",
+    setup: "رسوم تأسيس: 700 ₪ لمرة واحدة",
     features: [
-      "كل مزايا البداية",
+      "كل مزايا «رد وتواصل»",
+      "ربط 3 منصات معاً (واتساب + ماسنجر + إنستغرام)",
       "تسجيل متقدم للطلبات عبر Google Sheets",
       "تتبع الطلبات بكود المنتج أو رقم الطلب",
-      "ربط 3 منصات معاً (واتساب + ماسنجر + إنستغرام)",
-      "تحويل مباشر لموظف بشري (Live Handoff)",
-      "تحديث بيانات مجاني شهرياً",
-      "جلسة تدريب أونلاين (ساعة)",
-      "دعم متواصل 24/7",
-    ],
-    cta: "ابدأ بالمتقدمة",
-    isPopular: true,
-    priceColor: "text-gradient-brand",
-  },
-  {
-    name: "الاحترافية",
-    subtitle: "للأداء العالي",
-    price: "990",
-    period: "شهرياً",
-    messages: "محادثات غير محدودة",
-    setup: "رسوم تأسيس: مجاناً",
-    features: [
-      "كل مزايا المتقدمة",
-      "التفاعل الصوتي (استقبال وتحليل والرد بالصوت)",
       "قراءة الصور وإيصالات الدفع (Vision AI)",
-      "ردود متعددة اللغات (عربي/إنجليزي/عبري)",
+      "التفاعل الصوتي (استقبال وتحليل ورد صوتي)",
+      "تحويل مباشر لموظف بشري (Live Handoff)",
+      "حتى 3 مستخدمين بشريين (مقعد إضافي 100 ₪/شهر)",
       "تحديث الكتالوجات أسبوعياً مجاناً",
       "جلستان تدريب مع متابعة شخصية",
       "دعم متواصل 24/7",
     ],
-    cta: "ابدأ بالاحترافية",
+    cta: "ابدأ ببيع وتشغيل",
+    isPopular: true,
+    priceColor: "text-gradient-brand",
   },
 ];
 
 const enterpriseFeatures: string[] = [
+  "كل مزايا «بيع وتشغيل»",
   "توجيه ذكي للمحادثات (مبيعات/شكاوى/دعم)",
+  "مستخدمون بشريون غير محدودين",
   "ربط API مخصص مع أنظمتك الداخلية",
   "أتمتة مسارات العمل المعقدة",
   "هندسة شخصية تحاكي ثقافة شركتك",
-  "اتفاقية مستوى خدمة SLA مع دعم 24/7",
+  "اتفاقية مستوى خدمة (SLA) مع دعم 24/7",
   "تدريب شامل لطاقم خدمة العملاء",
 ];
 
@@ -105,8 +95,8 @@ export default function Pricing() {
           </p>
         </div>
 
-        {/* Pricing Cards — 3 self-serve tiers */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        {/* Pricing Cards — 2 self-serve tiers */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start max-w-4xl mx-auto">
           {tiers.map((tier) => (
             <div
               key={tier.name}
@@ -211,20 +201,15 @@ export default function Pricing() {
                 {/* Price */}
                 <div>
                   <p className="text-text-faint text-xs uppercase tracking-widest mb-2">
-                    الاشتراك يبدأ من
+                    تسعير مخصص
                   </p>
-                  <div className="flex items-end gap-1">
-                    <span className="text-text-muted text-xl font-medium" dir="ltr">₪</span>
-                    <span className="text-6xl font-black leading-none text-amber-400" dir="ltr">
-                      2990
+                  <div className="flex items-end gap-2">
+                    <span className="text-4xl lg:text-5xl font-black leading-none text-amber-400">
+                      حسب المشروع
                     </span>
-                    <span className="text-text-muted text-base mb-2">/ شهرياً</span>
                   </div>
-                  <p className="text-text-faint text-sm mt-2">
-                    رسوم تأسيس:{" "}
-                    <span className="text-text-muted font-bold" dir="ltr">
-                      ₪2,000 – ₪3,000
-                    </span>
+                  <p className="text-text-faint text-sm mt-3">
+                    العرض يُحدَّد بناءً على عدد الفروع والموظفين والأنظمة الداخلية.
                   </p>
                 </div>
 
@@ -256,9 +241,14 @@ export default function Pricing() {
         </div>
 
         {/* Bottom note */}
-        <p className="text-center text-text-faint text-sm mt-12">
-          جميع الأسعار بالشيكل · الدفع شهري · إلغاء الاشتراك في أي وقت
-        </p>
+        <div className="text-center mt-12 space-y-2">
+          <p className="text-text-faint text-sm">
+            جميع الأسعار بالشيكل · الدفع شهري مسبق · إلغاء الاشتراك في أي وقت
+          </p>
+          <p className="text-text-faint text-xs">
+            تكلفة رسائل واتساب (رسوم Meta) على حساب الزبون مباشرةً — ردود لا تأخذ عمولة عليها.
+          </p>
+        </div>
       </div>
     </section>
   );
