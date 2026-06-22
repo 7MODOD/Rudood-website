@@ -5,11 +5,11 @@ import Link from "next/link";
 import Logo from "../Logo";
 
 const navLinks = [
-  { label: "لماذا ردود؟", href: "#why" },
-  { label: "كيف نعمل؟", href: "#how" },
-  { label: "المنصات", href: "#platforms" },
-  { label: "الأسعار", href: "#pricing" },
-  { label: "الأسئلة الشائعة", href: "#faq" },
+  { label: "Why Rudood?", href: "#why" },
+  { label: "How It Works", href: "#how" },
+  { label: "Platforms", href: "#platforms" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export default function Navbar() {
@@ -20,8 +20,8 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="hover:opacity-80 transition-opacity">
-            <Logo size={36} showText={true} lang="ar" />
+          <Link href="/en" className="hover:opacity-80 transition-opacity">
+            <Logo size={36} showText={true} lang="en" />
           </Link>
 
           {/* Desktop Nav Links */}
@@ -40,16 +40,16 @@ export default function Navbar() {
           {/* Right side: Lang toggle + CTA */}
           <div className="hidden md:flex items-center gap-3">
             <Link
-              href="/en"
+              href="/"
               className="px-3 py-1.5 text-xs font-semibold rounded-full border border-slate-300 text-[#334155] hover:text-[#1E1B4B] hover:border-slate-400 transition-all"
             >
-              EN
+              ع
             </Link>
             <a
               href="#contact"
               className="px-5 py-2 rounded-full bg-brand-gradient text-white text-sm font-bold hover:opacity-90 transition-all duration-200 shadow-brand-sm"
             >
-              ابدأ الآن
+              Get Started
             </a>
           </div>
 
@@ -57,7 +57,7 @@ export default function Navbar() {
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden p-2 rounded-lg text-[#334155] hover:text-[#1E1B4B] hover:bg-slate-100 transition-colors"
-            aria-label="القائمة"
+            aria-label="Menu"
           >
             {menuOpen ? (
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -87,17 +87,17 @@ export default function Navbar() {
               ))}
               <div className="pt-3 px-4 flex gap-2">
                 <Link
-                  href="/en"
+                  href="/"
                   className="px-4 py-2 rounded-full border border-slate-300 text-[#334155] text-sm"
                 >
-                  English
+                  العربية
                 </Link>
                 <a
                   href="#contact"
                   onClick={() => setMenuOpen(false)}
                   className="flex-1 text-center px-5 py-3 rounded-full bg-brand-gradient text-white text-sm font-bold"
                 >
-                  ابدأ الآن
+                  Get Started
                 </a>
               </div>
             </div>
