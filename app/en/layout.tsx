@@ -11,6 +11,7 @@ const cairo = Cairo({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rudood.app";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Rudood | AI-Powered Customer Service Automation",
   description:
     "Rudood automates your customer service on WhatsApp, Instagram & Messenger using real AI — 24/7, no extra staff needed.",
@@ -28,6 +29,7 @@ export const metadata: Metadata = {
     languages: {
       ar: "/",
       en: "/en",
+      "x-default": "/",
     },
   },
   openGraph: {

@@ -1,24 +1,30 @@
 {
-  "name": "Rudood",
+  "name": "Rudood — ردود",
   "short_name": "Rudood",
   "description": "AI-Powered Customer Service Automation for WhatsApp, Instagram & Messenger",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#060b1a",
-  "theme_color": "#7c3aed",
+  "background_color": "#F8FAFC",
+  "theme_color": "#2563EB",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/logo.jpg",
+      "src": "/logo.png",
       "sizes": "192x192",
-      "type": "image/jpeg",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "/logo.jpg",
+      "src": "/logo.png",
       "sizes": "512x512",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "categories": ["business", "productivity"],

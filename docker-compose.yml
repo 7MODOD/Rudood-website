@@ -1,15 +1,17 @@
-version: "3.9"
-
 services:
   rudood-web:
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        # NEXT_PUBLIC_* vars must be known at build time (Next.js inlines them)
+        # NEXT_PUBLIC_* vars must be known at build time (Next.js inlines them).
+        # Values are substituted from a .env file in this directory (or the shell).
         NEXT_PUBLIC_N8N_FORM_URL:          ${NEXT_PUBLIC_N8N_FORM_URL}
         NEXT_PUBLIC_CHATWOOT_BASE_URL:     ${NEXT_PUBLIC_CHATWOOT_BASE_URL}
         NEXT_PUBLIC_CHATWOOT_INBOX_ID:     ${NEXT_PUBLIC_CHATWOOT_INBOX_ID}
+        NEXT_PUBLIC_SITE_URL:              ${NEXT_PUBLIC_SITE_URL}
+        NEXT_PUBLIC_GA_ID:                 ${NEXT_PUBLIC_GA_ID}
+        NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
     image: rudood-web:latest
     container_name: rudood-web
     restart: unless-stopped

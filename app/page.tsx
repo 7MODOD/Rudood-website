@@ -9,10 +9,13 @@ import ContactForm from "@/components/ContactForm";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import LiveChat from "@/components/LiveChat";
+import JsonLd from "@/components/JsonLd";
+import { faqs } from "@/lib/faq-data";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#F8FAFC] text-[#1E1B4B] overflow-x-hidden">
+      <JsonLd locale="ar" faqItems={faqs} />
       <Navbar />
       <HeroSection />
       <PlatformsSection />

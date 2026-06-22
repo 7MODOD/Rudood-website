@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
@@ -19,19 +20,36 @@ export const metadata: Metadata = {
   keywords: [
     "ردود",
     "Rudood",
+    "شات بوت",
     "شات بوت واتساب",
+    "بوت واتساب",
+    "روبوت محادثة",
     "ذكاء اصطناعي",
-    "خدمة العملاء",
+    "خدمة العملاء بالذكاء الاصطناعي",
+    "رد آلي واتساب",
     "أتمتة المتاجر",
+    "أتمتة خدمة العملاء",
+    "رد تلقائي إنستغرام",
+    "بوت ماسنجر",
     "WhatsApp AI",
+    "WhatsApp chatbot",
+    "AI customer service",
     "Instagram automation",
     "Messenger bot",
   ],
+  authors: [{ name: "Rudood", url: siteUrl }],
+  creator: "Rudood",
+  publisher: "Rudood",
+  category: "technology",
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
   alternates: {
     canonical: "/",
     languages: {
       ar: "/",
       en: "/en",
+      "x-default": "/",
     },
   },
   openGraph: {
@@ -64,10 +82,22 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
     shortcut: "/icon.png",
   },
+  manifest: "/manifest.json",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#070C18",
+  themeColor: "#F8FAFC",
 };
 
 export default function RootLayout({
@@ -77,7 +107,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl" className={cairo.variable}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <GoogleAnalytics />
+      </body>
     </html>
   );
 }

@@ -10,10 +10,13 @@ import ContactForm from "@/components/en/ContactForm";
 import FAQ from "@/components/en/FAQ";
 import Footer from "@/components/en/Footer";
 import LiveChat from "@/components/LiveChat";
+import JsonLd from "@/components/JsonLd";
+import { faqs } from "@/lib/faq-data.en";
 
 export default function EnHome() {
   return (
     <main className="min-h-screen bg-[#F8FAFC] text-[#1E1B4B] overflow-x-hidden">
+      <JsonLd locale="en" faqItems={faqs} />
       <Navbar />
       <HeroSection />
       <PlatformsSection />
