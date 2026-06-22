@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 
@@ -31,17 +31,17 @@ export default function FAQ() {
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section id="faq" className="py-24 bg-surface">
+    <section id="faq" className="py-24 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-14">
-          <p className="text-cyan text-sm font-semibold uppercase tracking-widest mb-3">
+          <p className="text-[#0891B2] text-sm font-semibold uppercase tracking-widest mb-3">
             FAQ
           </p>
-          <h2 className="text-3xl sm:text-4xl font-black text-text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl font-black text-[#1E1B4B] mb-4">
             Questions on your mind?
           </h2>
-          <p className="text-text-muted">
+          <p className="text-[#334155]">
             These are the most common questions business owners ask before getting started.
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function FAQ() {
               <div
                 key={i}
                 className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                  isOpen ? "border-primary/40 bg-surface-2" : "border-border bg-surface-2/50 hover:border-primary/20"
+                  isOpen ? "border-[#2563EB]/40 bg-[#F1F5F9]" : "border-slate-200 bg-[#F1F5F9]/50 hover:border-[#2563EB]/20"
                 }`}
               >
                 <button
@@ -62,14 +62,14 @@ export default function FAQ() {
                   className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
                   aria-expanded={isOpen}
                 >
-                  <span className={`text-base font-semibold transition-colors duration-200 ${isOpen ? "text-cyan" : "text-text-primary"}`}>
+                  <span className={`text-base font-semibold transition-colors duration-200 ${isOpen ? "text-[#0891B2]" : "text-[#1E1B4B]"}`}>
                     {item.q}
                   </span>
                   <span
                     className={`shrink-0 w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-300 ${
                       isOpen
-                        ? "border-primary/40 bg-primary/10 text-cyan rotate-45"
-                        : "border-border text-text-muted"
+                        ? "border-[#2563EB]/40 bg-[#2563EB]/10 text-[#0891B2] rotate-45"
+                        : "border-slate-200 text-[#334155]"
                     }`}
                   >
                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -84,7 +84,7 @@ export default function FAQ() {
                     isOpen ? "max-h-64 pb-6" : "max-h-0"
                   }`}
                 >
-                  <p className="px-6 text-text-muted text-sm leading-relaxed">{item.a}</p>
+                  <p className="px-6 text-[#334155] text-sm leading-relaxed">{item.a}</p>
                 </div>
               </div>
             );
@@ -92,8 +92,8 @@ export default function FAQ() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-12 text-center p-8 rounded-2xl border border-border bg-surface-2/50">
-          <p className="text-text-muted mb-4">
+        <div className="mt-12 text-center p-8 rounded-2xl border border-slate-200 bg-[#F1F5F9]/50">
+          <p className="text-[#334155] mb-4">
             Have a question that's not listed here? We're here to help.
           </p>
           <a

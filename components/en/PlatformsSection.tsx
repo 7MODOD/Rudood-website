@@ -1,4 +1,4 @@
-const platforms = [
+﻿const platforms = [
   {
     name: "WhatsApp",
     description:
@@ -45,18 +45,18 @@ const platforms = [
 
 export default function PlatformsSection() {
   return (
-    <section id="platforms" className="py-24 bg-night">
+    <section id="platforms" className="py-24 bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="text-cyan text-sm font-semibold uppercase tracking-widest mb-3">
+          <p className="text-[#0891B2] text-sm font-semibold uppercase tracking-widest mb-3">
             Supported Platforms
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1E1B4B] mb-4">
             Wherever your customers are,{" "}
             <span className="text-gradient">Rudood is there</span>
           </h2>
-          <p className="text-text-muted text-lg max-w-2xl mx-auto">
+          <p className="text-[#334155] text-lg max-w-2xl mx-auto">
             One platform that connects all your customer channels and puts smart replies everywhere.
           </p>
         </div>
@@ -66,11 +66,7 @@ export default function PlatformsSection() {
           {platforms.map((p) => (
             <div
               key={p.name}
-              className="relative p-7 rounded-3xl border transition-all duration-300 hover:scale-[1.02] group"
-              style={{
-                background: p.bgColor,
-                borderColor: p.borderColor,
-              }}
+              className="relative p-7 rounded-3xl border border-slate-200 bg-white shadow-soft transition-all duration-300 hover:scale-[1.02] hover:shadow-md group"
             >
               {/* Icon */}
               <div
@@ -81,10 +77,10 @@ export default function PlatformsSection() {
               </div>
 
               {/* Name */}
-              <h3 className="text-xl font-black text-text-primary mb-3">{p.name}</h3>
+              <h3 className="text-xl font-black text-[#1E1B4B] mb-3">{p.name}</h3>
 
               {/* Description */}
-              <p className="text-text-muted text-sm leading-relaxed mb-5">{p.description}</p>
+              <p className="text-[#334155] text-sm leading-relaxed mb-5">{p.description}</p>
 
               {/* Features */}
               <div className="space-y-2">
@@ -99,7 +95,7 @@ export default function PlatformsSection() {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-text-muted text-xs">{f}</span>
+                    <span className="text-[#334155] text-xs">{f}</span>
                   </div>
                 ))}
               </div>
@@ -117,7 +113,7 @@ export default function PlatformsSection() {
 
         {/* Bottom note */}
         <div className="mt-10 text-center">
-          <p className="text-text-faint text-sm">
+          <p className="text-[#94A3B8] text-sm">
             More platforms coming soon
           </p>
         </div>

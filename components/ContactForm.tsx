@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 
@@ -45,7 +45,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-surface relative overflow-hidden">
+    <section id="contact" className="py-24 bg-white relative overflow-hidden">
       {/* Background glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -58,13 +58,13 @@ export default function ContactForm() {
       <div className="relative max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-10">
-          <p className="text-cyan text-sm font-semibold uppercase tracking-widest mb-3">
+          <p className="text-[#0891B2] text-sm font-semibold uppercase tracking-widest mb-3">
             ابدأ الآن
           </p>
-          <h2 className="text-3xl sm:text-4xl font-black text-text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl font-black text-[#1E1B4B] mb-4">
             جهّز متجرك للردود الذكية
           </h2>
-          <p className="text-text-muted">
+          <p className="text-[#334155]">
             أرسل طلبك وسيتواصل معك فريقنا خلال 24 ساعة لبدء الإعداد.
           </p>
         </div>
@@ -77,8 +77,8 @@ export default function ContactForm() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="text-2xl font-black text-text-primary">تم الإرسال بنجاح! 🎉</h3>
-            <p className="text-text-muted max-w-sm mx-auto">
+            <h3 className="text-2xl font-black text-[#1E1B4B]">تم الإرسال بنجاح! 🎉</h3>
+            <p className="text-[#334155] max-w-sm mx-auto">
               سيتواصل معك فريق ردود خلال 24 ساعة لبدء إعداد نظامك. تحقق من بريدك الإلكتروني.
             </p>
           </div>
@@ -86,11 +86,11 @@ export default function ContactForm() {
           /* Form */
           <form
             onSubmit={handleSubmit}
-            className="space-y-4 bg-surface-2 rounded-3xl p-8 border border-border"
+            className="space-y-4 bg-[#F1F5F9] rounded-3xl p-8 border border-slate-200"
           >
             {/* Full Name */}
             <div>
-              <label className="block text-sm font-semibold text-text-primary mb-1.5">
+              <label className="block text-sm font-semibold text-[#1E1B4B] mb-1.5">
                 الاسم الكامل <span className="text-red-400">*</span>
               </label>
               <input
@@ -98,13 +98,13 @@ export default function ContactForm() {
                 name="fullName"
                 required
                 placeholder="محمد أحمد"
-                className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder-text-faint focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-[#1E1B4B] placeholder-[#94A3B8] focus:outline-none focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB]/30 transition-all text-sm"
               />
             </div>
 
             {/* Phone */}
             <div>
-              <label className="block text-sm font-semibold text-text-primary mb-1.5">
+              <label className="block text-sm font-semibold text-[#1E1B4B] mb-1.5">
                 رقم الهاتف <span className="text-red-400">*</span>
               </label>
               <input
@@ -113,13 +113,13 @@ export default function ContactForm() {
                 required
                 placeholder="+970 5X XXX XXXX"
                 dir="ltr"
-                className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder-text-faint focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all text-sm text-end"
+                className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-[#1E1B4B] placeholder-[#94A3B8] focus:outline-none focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB]/30 transition-all text-sm text-end"
               />
             </div>
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-semibold text-text-primary mb-1.5">
+              <label className="block text-sm font-semibold text-[#1E1B4B] mb-1.5">
                 البريد الإلكتروني <span className="text-red-400">*</span>
               </label>
               <input
@@ -128,13 +128,13 @@ export default function ContactForm() {
                 required
                 placeholder="name@business.com"
                 dir="ltr"
-                className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder-text-faint focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all text-sm text-end"
+                className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-[#1E1B4B] placeholder-[#94A3B8] focus:outline-none focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB]/30 transition-all text-sm text-end"
               />
             </div>
 
             {/* Business Name */}
             <div>
-              <label className="block text-sm font-semibold text-text-primary mb-1.5">
+              <label className="block text-sm font-semibold text-[#1E1B4B] mb-1.5">
                 اسم النشاط التجاري <span className="text-red-400">*</span>
               </label>
               <input
@@ -142,13 +142,13 @@ export default function ContactForm() {
                 name="businessName"
                 required
                 placeholder="متجر الأناقة"
-                className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder-text-faint focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-[#1E1B4B] placeholder-[#94A3B8] focus:outline-none focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB]/30 transition-all text-sm"
               />
             </div>
 
             {/* Business Description */}
             <div>
-              <label className="block text-sm font-semibold text-text-primary mb-1.5">
+              <label className="block text-sm font-semibold text-[#1E1B4B] mb-1.5">
                 وصف نشاطك التجاري <span className="text-red-400">*</span>
               </label>
               <textarea
@@ -156,7 +156,7 @@ export default function ContactForm() {
                 required
                 rows={4}
                 placeholder="اكتب نبذة عن متجرك أو نشاطك: ماذا تبيع؟ من هم عملاؤك؟ على أي منصات تستقبل الرسائل؟"
-                className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary placeholder-text-faint focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all text-sm resize-y"
+                className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-[#1E1B4B] placeholder-[#94A3B8] focus:outline-none focus:border-[#2563EB] focus:ring-1 focus:ring-[#2563EB]/30 transition-all text-sm resize-y"
               />
             </div>
 
@@ -179,9 +179,9 @@ export default function ContactForm() {
               )}
             </button>
 
-            <p className="text-center text-text-faint text-xs">
+            <p className="text-center text-[#94A3B8] text-xs">
               بالإرسال، أنت توافق على{" "}
-              <a href="/privacy" className="text-cyan hover:underline">
+              <a href="/privacy" className="text-[#0891B2] hover:underline">
                 سياسة الخصوصية
               </a>{" "}
               الخاصة بنا.

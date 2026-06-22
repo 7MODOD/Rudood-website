@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useEffect } from "react";
 
@@ -154,20 +154,20 @@ export default function TryNow() {
 
   /* ══ Render ══ */
   return (
-    <section id="try" className="py-24 bg-night relative overflow-hidden">
+    <section id="try" className="py-24 bg-[#F8FAFC] relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(37,99,235,0.07) 0%, rgba(124,58,237,0.05) 40%, transparent 70%)" }} />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan/30 bg-cyan/10 text-cyan text-sm font-semibold mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/10 text-[#0891B2] text-sm font-semibold mb-5">
             <span>🤖</span> Try Rudood Now
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1E1B4B] mb-4">
             See the AI <span className="text-gradient">in action</span>
           </h2>
-          <p className="text-text-muted text-lg">Send a message and talk to the Rudood team directly</p>
+          <p className="text-[#334155] text-lg">Send a message and talk to the Rudood team directly</p>
         </div>
 
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 justify-center">
@@ -295,14 +295,14 @@ export default function TryNow() {
                     {f.icon}
                   </div>
                   <div>
-                    <h3 className="text-text-primary font-bold mb-1">{f.title}</h3>
-                    <p className="text-text-muted text-sm leading-relaxed">{f.desc}</p>
+                    <h3 className="text-[#1E1B4B] font-bold mb-1">{f.title}</h3>
+                    <p className="text-[#334155] text-sm leading-relaxed">{f.desc}</p>
                   </div>
                 </div>
               </div>
             ))}
-            <div className="mt-1 p-5 rounded-2xl border border-primary/20 bg-primary/5 text-center">
-              <p className="text-text-muted text-sm mb-3">Like what you see?</p>
+            <div className="mt-1 p-5 rounded-2xl border border-[#2563EB]/20 bg-[#2563EB]/5 text-center">
+              <p className="text-[#334155] text-sm mb-3">Like what you see?</p>
               <a href="#contact"
                 className="inline-block px-6 py-3 rounded-full bg-brand-gradient text-white text-sm font-bold hover:opacity-90 shadow-brand-sm transition-all">
                 Start with us now

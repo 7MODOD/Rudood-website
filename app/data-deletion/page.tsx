@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -166,9 +166,9 @@ export default function DataDeletionPage() {
           className="p-5 rounded-xl border mb-10 flex items-center gap-4"
           style={{ background: "rgba(6,182,212,0.07)", borderColor: "rgba(6,182,212,0.2)" }}
         >
-          <Clock size={24} className="text-cyan-400 flex-shrink-0" />
+          <Clock size={24} className="text-[#0891B2]-400 flex-shrink-0" />
           <p className="text-slate-300 text-sm">
-            <strong className="text-white">الإطار الزمني:</strong> يُعالَج طلب التحقق خلال <strong className="text-cyan-400">٤٨ ساعة عمل</strong>، ويكتمل الحذف الكامل خلال <strong className="text-cyan-400">٣٠ يوماً</strong> من تأكيد الطلب.
+            <strong className="text-white">الإطار الزمني:</strong> يُعالَج طلب التحقق خلال <strong className="text-[#0891B2]-400">٤٨ ساعة عمل</strong>، ويكتمل الحذف الكامل خلال <strong className="text-[#0891B2]-400">٣٠ يوماً</strong> من تأكيد الطلب.
           </p>
         </div>
 

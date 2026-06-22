@@ -1,4 +1,4 @@
-const painPoints = [
+﻿const painPoints = [
   {
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -80,17 +80,17 @@ const features = [
 
 export default function WhyRudood() {
   return (
-    <section id="why" className="py-24 bg-surface">
+    <section id="why" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="text-cyan text-sm font-semibold uppercase tracking-widest mb-3">
+          <p className="text-[#0891B2] text-sm font-semibold uppercase tracking-widest mb-3">
             Why Rudood?
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1E1B4B] mb-4">
             The problem every business owner faces
           </h2>
-          <p className="text-text-muted text-lg max-w-2xl mx-auto">
+          <p className="text-[#334155] text-lg max-w-2xl mx-auto">
             You don't need more staff. You need a system that never sleeps and never makes mistakes.
           </p>
         </div>
@@ -100,13 +100,13 @@ export default function WhyRudood() {
           {painPoints.map((point) => (
             <div
               key={point.title}
-              className="relative p-6 rounded-2xl border border-red-900/30 bg-red-950/10 hover:border-red-800/50 transition-all duration-300 group"
+              className="relative p-6 rounded-2xl border border-red-200 bg-red-50 hover:border-red-300 transition-all duration-300 group shadow-sm"
             >
-              <div className="w-12 h-12 rounded-xl bg-red-950/40 border border-red-900/40 flex items-center justify-center text-red-400 mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 rounded-xl bg-red-100 border border-red-200 flex items-center justify-center text-red-500 mb-4 group-hover:scale-110 transition-transform">
                 {point.icon}
               </div>
-              <h3 className="text-lg font-bold text-text-primary mb-2">{point.title}</h3>
-              <p className="text-text-muted text-sm leading-relaxed">{point.description}</p>
+              <h3 className="text-lg font-bold text-[#1E1B4B] mb-2">{point.title}</h3>
+              <p className="text-[#334155] text-sm leading-relaxed">{point.description}</p>
             </div>
           ))}
         </div>
@@ -115,7 +115,7 @@ export default function WhyRudood() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-4">
             <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold/40"></div>
-            <p className="text-cyan font-bold text-lg">The solution with Rudood</p>
+            <p className="text-[#0891B2] font-bold text-lg">The solution with Rudood</p>
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold/40"></div>
           </div>
         </div>
@@ -125,18 +125,18 @@ export default function WhyRudood() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="relative p-6 rounded-2xl border border-border bg-surface-2 hover:border-primary/40 transition-all duration-300 group cursor-default"
+              className="relative p-6 rounded-2xl border border-slate-200 bg-[#F1F5F9] hover:border-[#2563EB]/40 transition-all duration-300 group cursor-default"
             >
               {/* Highlight badge */}
-              <div className="absolute top-4 right-4 text-xs font-bold text-cyan bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20">
+              <div className="absolute top-4 right-4 text-xs font-bold text-[#0891B2] bg-[#2563EB]/10 px-2 py-0.5 rounded-full border border-[#2563EB]/20">
                 {feature.highlight}
               </div>
 
-              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-cyan mb-4 group-hover:bg-primary/15 group-hover:scale-110 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-[#2563EB]/10 border border-[#2563EB]/20 flex items-center justify-center text-[#0891B2] mb-4 group-hover:bg-[#2563EB]/15 group-hover:scale-110 transition-all">
                 {feature.icon}
               </div>
-              <h3 className="text-base font-bold text-text-primary mb-2">{feature.title}</h3>
-              <p className="text-text-muted text-sm leading-relaxed">{feature.description}</p>
+              <h3 className="text-base font-bold text-[#1E1B4B] mb-2">{feature.title}</h3>
+              <p className="text-[#334155] text-sm leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>

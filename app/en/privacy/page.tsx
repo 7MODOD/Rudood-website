@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Logo from "@/components/Logo";
 
@@ -148,16 +148,16 @@ We are committed to responding to all privacy-related inquiries within 72 busine
 
 export default function EnPrivacyPage() {
   return (
-    <div className="min-h-screen bg-night text-text-primary">
+    <div className="min-h-screen bg-[#F8FAFC] text-[#1E1B4B]">
       {/* Simple nav */}
-      <header className="border-b border-border bg-surface/50 backdrop-blur-md sticky top-0 z-50">
+      <header className="border-b border-slate-200 bg-white/50 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <Link href="/en">
-            <Logo size={32} showText={true} lang="en" textClass="text-lg text-text-primary" />
+            <Logo size={32} showText={true} lang="en" textClass="text-lg text-[#1E1B4B]" />
           </Link>
           <Link
             href="/en"
-            className="text-sm text-text-muted hover:text-text-primary transition-colors flex items-center gap-1"
+            className="text-sm text-[#334155] hover:text-[#1E1B4B] transition-colors flex items-center gap-1"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -171,11 +171,11 @@ export default function EnPrivacyPage() {
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
         {/* Header */}
         <div className="mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan/30 bg-cyan/5 text-cyan text-xs font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5 text-[#0891B2] text-xs font-semibold mb-4">
             Last updated: April 2026
           </div>
-          <h1 className="text-4xl font-black text-text-primary mb-4">Privacy Policy</h1>
-          <p className="text-text-muted text-lg leading-relaxed">
+          <h1 className="text-4xl font-black text-[#1E1B4B] mb-4">Privacy Policy</h1>
+          <p className="text-[#334155] text-lg leading-relaxed">
             At Rudood, we value your privacy and are committed to protecting your personal data and your
             customers&apos; data. This policy explains how we collect, use, and protect information when you
             use our platform integrated with WhatsApp, Instagram, and Messenger.
@@ -183,13 +183,13 @@ export default function EnPrivacyPage() {
         </div>
 
         {/* Meta integration notice */}
-        <div className="mb-10 p-5 rounded-2xl border border-primary/30 bg-primary/5 flex items-start gap-4">
-          <svg className="w-5 h-5 text-cyan shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="mb-10 p-5 rounded-2xl border border-[#2563EB]/30 bg-[#2563EB]/5 flex items-start gap-4">
+          <svg className="w-5 h-5 text-[#0891B2] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <div>
-            <p className="text-text-primary font-semibold text-sm mb-1">Meta Platform Integration</p>
-            <p className="text-text-muted text-sm leading-relaxed">
+            <p className="text-[#1E1B4B] font-semibold text-sm mb-1">Meta Platform Integration</p>
+            <p className="text-[#334155] text-sm leading-relaxed">
               Rudood is an approved Meta Business application operating in accordance with official Meta
               policies. We handle WhatsApp, Instagram, and Messenger messages solely for the purpose of
               authorized automated replies on your behalf.
@@ -202,10 +202,10 @@ export default function EnPrivacyPage() {
           {sections.map((section) => (
             <div
               key={section.title}
-              className="p-6 rounded-2xl border border-border bg-surface"
+              className="p-6 rounded-2xl border border-slate-200 bg-white"
             >
-              <h2 className="text-base font-black text-text-primary mb-3">{section.title}</h2>
-              <div className="text-text-muted text-sm leading-relaxed whitespace-pre-line">
+              <h2 className="text-base font-black text-[#1E1B4B] mb-3">{section.title}</h2>
+              <div className="text-[#334155] text-sm leading-relaxed whitespace-pre-line">
                 {section.content}
               </div>
             </div>
@@ -213,10 +213,10 @@ export default function EnPrivacyPage() {
         </div>
 
         {/* Footer note */}
-        <div className="mt-12 p-6 rounded-2xl border border-primary/20 bg-primary/5 text-center">
-          <p className="text-text-muted text-sm">
+        <div className="mt-12 p-6 rounded-2xl border border-[#2563EB]/20 bg-[#2563EB]/5 text-center">
+          <p className="text-[#334155] text-sm">
             This policy is effective as of April 2026. For any inquiries:{" "}
-            <a href="mailto:privacy@rudood.app" className="text-cyan hover:underline">
+            <a href="mailto:privacy@rudood.app" className="text-[#0891B2] hover:underline">
               privacy@rudood.app
             </a>
           </p>

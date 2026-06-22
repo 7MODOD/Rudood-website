@@ -1,4 +1,4 @@
-import Logo from "./Logo";
+﻿import Logo from "./Logo";
 import Link from "next/link";
 
 const socialLinks = [
@@ -42,9 +42,9 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-surface border-t border-border">
+    <footer className="bg-white border-t border-slate-200">
       {/* CTA Banner */}
-      <div className="relative overflow-hidden border-b border-border/50">
+      <div className="relative overflow-hidden border-b border-slate-200/50">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -53,10 +53,10 @@ export default function Footer() {
           }}
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <h2 className="text-3xl sm:text-4xl font-black text-text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl font-black text-[#1E1B4B] mb-4">
             جاهز تبدأ؟
           </h2>
-          <p className="text-text-muted text-lg mb-8 max-w-xl mx-auto">
+          <p className="text-[#334155] text-lg mb-8 max-w-xl mx-auto">
             انضم اليوم وخلّ ردود يتولى خدمة عملاءك — 24/7 على كل المنصات.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -68,7 +68,7 @@ export default function Footer() {
             </a>
             <a
               href="https://wa.me/970597876548?text=مرحباً%20فريق%20ردود،%20لدي%20سؤال%20حول%20الردود%20الذكية."
-              className="px-8 py-4 rounded-full border border-border text-text-muted hover:text-text-primary hover:border-border-light transition-all duration-200 font-medium text-lg"
+              className="px-8 py-4 rounded-full border border-slate-200 text-[#334155] hover:text-[#1E1B4B] hover:border-slate-300 transition-all duration-200 font-medium text-lg"
             >
               تواصل عبر واتساب
             </a>
@@ -81,8 +81,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Column 1: Logo + About + Socials */}
           <div className="space-y-4">
-            <Logo size={40} showText={true} lang="ar" textClass="text-xl text-text-primary" />
-            <p className="text-text-muted text-sm leading-relaxed">
+            <Logo size={40} showText={true} lang="ar" textClass="text-xl text-[#1E1B4B]" />
+            <p className="text-[#334155] text-sm leading-relaxed">
               منصة ردود تُمكّن أصحاب المتاجر والشركات من تقديم خدمة عملاء ذكية عبر واتساب
               وإنستغرام وماسنجر — 24/7 بدون موظف إضافي.
             </p>
@@ -92,7 +92,7 @@ export default function Footer() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-full bg-surface-2 border border-border flex items-center justify-center text-text-muted hover:text-cyan hover:border-cyan/40 transition-all duration-200"
+                  className="w-9 h-9 rounded-full bg-[#F1F5F9] border border-slate-200 flex items-center justify-center text-[#334155] hover:text-[#0891B2] hover:border-[#0891B2]/40 transition-all duration-200"
                 >
                   {s.icon}
                 </a>
@@ -102,7 +102,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-sm font-bold text-text-primary uppercase tracking-widest">
+            <h3 className="text-sm font-bold text-[#1E1B4B] uppercase tracking-widest">
               روابط سريعة
             </h3>
             <ul className="space-y-2">
@@ -110,7 +110,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-text-muted hover:text-cyan transition-colors text-sm"
+                    className="text-[#334155] hover:text-[#0891B2] transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -121,14 +121,14 @@ export default function Footer() {
 
           {/* Column 3: Contact */}
           <div className="space-y-4">
-            <h3 className="text-sm font-bold text-text-primary uppercase tracking-widest">
+            <h3 className="text-sm font-bold text-[#1E1B4B] uppercase tracking-widest">
               تواصل معنا
             </h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="mailto:info@rudood.com"
-                  className="flex items-center gap-2 text-text-muted hover:text-cyan transition-colors text-sm"
+                  className="flex items-center gap-2 text-[#334155] hover:text-[#0891B2] transition-colors text-sm"
                 >
                   <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -152,7 +152,7 @@ export default function Footer() {
             <div className="pt-2">
               <Link
                 href="/en"
-                className="inline-flex items-center gap-2 text-text-faint hover:text-text-muted transition-colors text-xs"
+                className="inline-flex items-center gap-2 text-[#94A3B8] hover:text-[#334155] transition-colors text-xs"
               >
                 🌐 English Version
               </Link>
@@ -161,7 +161,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3 text-text-faint text-xs">
+        <div className="mt-12 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-[#94A3B8] text-xs">
           <p>© {new Date().getFullYear()} Rudood. جميع الحقوق محفوظة.</p>
         </div>
       </div>

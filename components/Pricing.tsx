@@ -1,4 +1,4 @@
-import { Building2 } from "lucide-react";
+﻿import { Building2 } from "lucide-react";
 
 type PricingTier = {
   name: string;
@@ -69,7 +69,7 @@ const enterpriseFeatures: string[] = [
   "تدريب شامل لطاقم خدمة العملاء",
 ];
 
-function CheckIcon({ color = "text-cyan" }: { color?: string }) {
+function CheckIcon({ color = "text-[#0891B2]" }: { color?: string }) {
   return (
     <svg className={`w-4 h-4 ${color} shrink-0`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -79,17 +79,17 @@ function CheckIcon({ color = "text-cyan" }: { color?: string }) {
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 bg-night">
+    <section id="pricing" className="py-24 bg-[#F3E8FF]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <p className="text-cyan text-sm font-semibold uppercase tracking-widest mb-3">
+          <p className="text-[#7C3AED] text-sm font-semibold uppercase tracking-widest mb-3">
             خطط الأسعار
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1E1B4B] mb-4">
             استثمار يُعيد عليك أضعافه
           </h2>
-          <p className="text-text-muted text-lg max-w-2xl mx-auto">
+          <p className="text-[#334155] text-lg max-w-2xl mx-auto">
             اختر الباقة المناسبة لبزنسك. جميع الباقات تشمل محادثات غير محدودة وردوداً ذكية حقيقية.
           </p>
         </div>
@@ -101,8 +101,8 @@ export default function Pricing() {
               key={tier.name}
               className={`relative rounded-3xl p-7 flex flex-col gap-6 transition-all duration-300 ${
                 tier.isPopular
-                  ? "bg-surface-2 border-2 border-primary/50 md:scale-[1.03] shadow-brand"
-                  : "bg-surface border border-border hover:border-primary/30"
+                  ? "bg-white border-2 border-[#7C3AED]/50 md:scale-[1.03] shadow-brand"
+                  : "bg-white border border-slate-200 hover:border-[#7C3AED]/30 shadow-sm hover:shadow-md"
               }`}
             >
               {/* Popular badge */}
@@ -122,25 +122,25 @@ export default function Pricing() {
 
               {/* Tier header */}
               <div>
-                <h3 className="text-xl font-black text-text-primary mb-1">{tier.name}</h3>
-                <p className="text-text-muted text-sm">{tier.subtitle}</p>
+                <h3 className="text-xl font-black text-[#1E1B4B] mb-1">{tier.name}</h3>
+                <p className="text-[#334155] text-sm">{tier.subtitle}</p>
               </div>
 
               {/* Price */}
               <div>
                 <div className="flex items-end gap-1">
-                  <span className="text-text-muted text-lg font-medium" dir="ltr">₪</span>
+                  <span className="text-[#334155] text-lg font-medium" dir="ltr">₪</span>
                   <span
-                    className={`text-5xl font-black leading-none ${tier.priceColor || "text-text-primary"}`}
+                    className={`text-5xl font-black leading-none ${tier.priceColor || "text-[#1E1B4B]"}`}
                     dir="ltr"
                   >
                     {tier.price}
                   </span>
                 </div>
-                <p className="text-text-muted text-sm mt-1">
+                <p className="text-[#334155] text-sm mt-1">
                   {tier.period} · {tier.messages}
                 </p>
-                <p className="text-text-faint text-xs mt-2">{tier.setup}</p>
+                <p className="text-[#94A3B8] text-xs mt-2">{tier.setup}</p>
               </div>
 
               {/* CTA */}
@@ -148,19 +148,19 @@ export default function Pricing() {
                 href="#contact"
                 className={`block text-center px-6 py-3.5 rounded-full font-bold text-base transition-all duration-200 ${
                   tier.isPopular
-                    ? "bg-brand-gradient text-white hover:opacity-90 shadow-brand-sm"
-                    : "border border-border text-text-muted hover:text-text-primary hover:border-primary/40"
+                    ? "bg-rudood-gradient text-white hover:opacity-90 shadow-brand-sm"
+                    : "border-2 border-[#1E3A8A]/40 bg-white text-[#1E3A8A] hover:border-[#1E3A8A]/70 hover:bg-slate-50"
                 }`}
               >
                 {tier.cta}
               </a>
 
               {/* Features */}
-              <div className="space-y-3 pt-2 border-t border-border">
+              <div className="space-y-3 pt-2 border-t border-slate-200">
                 {tier.features.map((f) => (
                   <div key={f} className="flex items-center gap-3">
-                    <CheckIcon color="text-cyan" />
-                    <span className="text-text-muted text-sm">{f}</span>
+                    <CheckIcon color="text-[#0891B2]" />
+                    <span className="text-[#334155] text-sm">{f}</span>
                   </div>
                 ))}
               </div>
@@ -170,7 +170,7 @@ export default function Pricing() {
 
         {/* Enterprise — Premium tier */}
         <div className="mt-16">
-          <div className="relative rounded-3xl border border-amber-500/30 bg-surface-2 p-8 lg:p-12 overflow-hidden">
+          <div className="relative rounded-3xl border border-amber-300/60 bg-amber-50/60 p-8 lg:p-12 overflow-hidden shadow-sm">
             {/* Subtle amber glow accent */}
             <div
               className="absolute top-0 right-0 w-80 h-80 rounded-full opacity-10 blur-3xl pointer-events-none"
@@ -188,10 +188,10 @@ export default function Pricing() {
                 </div>
 
                 <div>
-                  <h3 className="text-3xl lg:text-4xl font-black text-text-primary mb-2">
+                  <h3 className="text-3xl lg:text-4xl font-black text-[#1E1B4B] mb-2">
                     باقة الشركات
                   </h3>
-                  <p className="text-text-muted text-base leading-relaxed">
+                  <p className="text-[#334155] text-base leading-relaxed">
                     مصممة للشركات ذات العمليات المعقدة والأنظمة الداخلية المتخصصة.
                     تكامل عميق، أتمتة متقدمة، ودعم على مستوى المؤسسات.
                   </p>
@@ -199,7 +199,7 @@ export default function Pricing() {
 
                 {/* Price */}
                 <div>
-                  <p className="text-text-faint text-xs uppercase tracking-widest mb-2">
+                  <p className="text-[#94A3B8] text-xs uppercase tracking-widest mb-2">
                     تسعير مخصص
                   </p>
                   <div className="flex items-end gap-2">
@@ -207,7 +207,7 @@ export default function Pricing() {
                       حسب المشروع
                     </span>
                   </div>
-                  <p className="text-text-faint text-sm mt-3">
+                  <p className="text-[#94A3B8] text-sm mt-3">
                     العرض يُحدَّد بناءً على عدد الفروع والموظفين والأنظمة الداخلية.
                   </p>
                 </div>
@@ -215,7 +215,7 @@ export default function Pricing() {
                 {/* CTA */}
                 <a
                   href="https://wa.me/970597876548"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-bold text-base bg-amber-500 text-night hover:bg-amber-400 transition-colors duration-200"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-bold text-base bg-amber-500 text-white hover:bg-amber-400 transition-colors duration-200"
                 >
                   تواصل معنا
                 </a>
@@ -223,14 +223,14 @@ export default function Pricing() {
 
               {/* Right: Features — 3 cols */}
               <div className="lg:col-span-3">
-                <p className="text-text-faint text-xs uppercase tracking-widest mb-5">
+                <p className="text-[#94A3B8] text-xs uppercase tracking-widest mb-5">
                   مزايا حصرية للشركات
                 </p>
                 <div className="grid sm:grid-cols-2 gap-x-6 gap-y-4">
                   {enterpriseFeatures.map((f) => (
                     <div key={f} className="flex items-start gap-3">
                       <CheckIcon color="text-amber-400" />
-                      <span className="text-text-muted text-sm leading-relaxed">{f}</span>
+                      <span className="text-[#334155] text-sm leading-relaxed">{f}</span>
                     </div>
                   ))}
                 </div>
@@ -241,10 +241,10 @@ export default function Pricing() {
 
         {/* Bottom note */}
         <div className="text-center mt-12 space-y-2">
-          <p className="text-text-faint text-sm">
+          <p className="text-[#94A3B8] text-sm">
             جميع الأسعار بالشيكل · الدفع شهري مسبق · إلغاء الاشتراك في أي وقت
           </p>
-          <p className="text-text-faint text-xs">
+          <p className="text-[#94A3B8] text-xs">
             تكلفة رسائل واتساب (رسوم Meta) على حساب الزبون مباشرةً — ردود لا تأخذ عمولة عليها.
           </p>
         </div>

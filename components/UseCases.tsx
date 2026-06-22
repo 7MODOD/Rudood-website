@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 
@@ -107,24 +107,24 @@ export default function UseCases() {
   const scenario = scenarios[active];
 
   return (
-    <section id="cases" className="py-24 bg-surface">
+    <section id="cases" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
           <p className="text-gradient-brand text-sm font-semibold uppercase tracking-widest mb-3">
             أمثلة حية
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1E1B4B] mb-4">
             شوف ردود في العمل
           </h2>
-          <p className="text-text-muted text-lg max-w-2xl mx-auto">
+          <p className="text-[#334155] text-lg max-w-2xl mx-auto">
             محادثات حقيقية — ردود ذكية تفهم السياق وتخدم العميل مثل موظفك الأفضل.
           </p>
         </div>
 
         {/* Tab Switcher */}
         <div className="flex justify-center mb-10">
-          <div className="flex gap-2 p-1.5 bg-surface-2 rounded-full border border-border">
+          <div className="flex gap-2 p-1.5 bg-[#F1F5F9] rounded-full border border-slate-200">
             {(["clothing", "restaurant"] as const).map((key) => {
               const s = scenarios[key];
               return (
@@ -134,7 +134,7 @@ export default function UseCases() {
                   className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
                     active === key
                       ? "bg-brand-gradient text-white shadow-brand-sm"
-                      : "text-text-muted hover:text-text-primary"
+                      : "text-[#334155] hover:text-[#1E1B4B]"
                   }`}
                 >
                   <span>{s.emoji}</span>
@@ -197,31 +197,31 @@ export default function UseCases() {
 
           {/* Callout cards */}
           <div className="flex flex-col gap-4 max-w-sm w-full lg:pt-8">
-            <p className="text-text-muted text-sm font-semibold uppercase tracking-widest text-center lg:text-start mb-2">
+            <p className="text-[#334155] text-sm font-semibold uppercase tracking-widest text-center lg:text-start mb-2">
               ما الذي حدث للتو؟
             </p>
             {scenario.callouts.map((c, i) => (
               <div
                 key={i}
-                className="flex items-start gap-4 p-5 rounded-2xl border border-border bg-surface-2 animate-fade-in-up"
+                className="flex items-start gap-4 p-5 rounded-2xl border border-slate-200 bg-[#F1F5F9] animate-fade-in-up"
                 style={{ animationDelay: `${i * 0.15}s` }}
               >
-                <div className={`w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 ${c.color}`}>
+                <div className={`w-10 h-10 rounded-full bg-[#2563EB]/10 border border-[#2563EB]/20 flex items-center justify-center shrink-0 ${c.color}`}>
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
                 <div>
                   <p className={`font-bold text-sm mb-0.5 ${c.color}`}>{c.title}</p>
-                  <p className="text-text-muted text-sm">{c.desc}</p>
+                  <p className="text-[#334155] text-sm">{c.desc}</p>
                 </div>
               </div>
             ))}
 
             {/* Bottom note */}
-            <div className="mt-4 p-4 rounded-2xl border border-primary/20 bg-primary/5 text-center">
+            <div className="mt-4 p-4 rounded-2xl border border-[#2563EB]/20 bg-[#2563EB]/5 text-center">
               <p className="text-gradient-brand text-sm font-semibold mb-1">كل هذا في ثوانٍ</p>
-              <p className="text-text-muted text-xs">
+              <p className="text-[#334155] text-xs">
                 بدون موظف، بدون انتظار، بدون أخطاء.
               </p>
             </div>

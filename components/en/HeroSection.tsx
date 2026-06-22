@@ -1,4 +1,4 @@
-const platforms = [
+﻿const platforms = [
   {
     name: "WhatsApp",
     color: "#25D366",
@@ -35,10 +35,10 @@ const platforms = [
 ];
 
 const stats = [
-  { value: "24/7", label: "Always On", color: "text-cyan" },
+  { value: "24/7", label: "Always On", color: "text-[#0891B2]" },
   { value: "Instant", label: "Response Time", color: "text-gradient-brand" },
   { value: "60%+", label: "Cost Savings", color: "text-gradient-brand" },
-  { value: "3-7", label: "Days to Launch", color: "text-cyan" },
+  { value: "3-7", label: "Days to Launch", color: "text-[#0891B2]" },
 ];
 
 export default function HeroSection() {
@@ -62,13 +62,13 @@ export default function HeroSection() {
           {/* ── Text Column ── */}
           <div className="space-y-8 animate-fade-in-up">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan/30 bg-cyan/5 text-cyan text-sm font-medium">
-              <span className="w-2 h-2 rounded-full bg-cyan animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#0891B2]/30 bg-[#0891B2]/5 text-[#0891B2] text-sm font-medium">
+              <span className="w-2 h-2 rounded-full bg-[#0891B2] animate-pulse" />
               Powered by Artificial Intelligence
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-text-primary">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-[#1E1B4B]">
               Never lose{" "}
               <span className="text-gradient">a customer</span>
               <br />
@@ -76,9 +76,9 @@ export default function HeroSection() {
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-lg sm:text-xl text-text-muted leading-relaxed max-w-xl">
+            <p className="text-lg sm:text-xl text-[#334155] leading-relaxed max-w-xl">
               Rudood replies to your customers with real AI that understands your business context — across{" "}
-              <span className="text-text-primary font-semibold">
+              <span className="text-[#1E1B4B] font-semibold">
                 WhatsApp, Instagram & Messenger...
               </span>{" "}
               — 24/7, no extra staff needed.
@@ -86,11 +86,11 @@ export default function HeroSection() {
 
             {/* Platform pills */}
             <div className="flex items-center gap-3 flex-wrap">
-              <span className="text-text-faint text-sm">Works on:</span>
+              <span className="text-[#94A3B8] text-sm">Works on:</span>
               {platforms.map((p) => (
                 <div
                   key={p.name}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-surface text-sm font-medium"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 bg-white shadow-sm text-sm font-medium"
                   style={{ color: p.color }}
                 >
                   {p.icon}
@@ -109,9 +109,9 @@ export default function HeroSection() {
               </a>
               <a
                 href="#try"
-                className="flex items-center gap-3 px-8 py-4 rounded-full border border-border text-text-muted hover:text-text-primary hover:border-border-light transition-all duration-200 font-medium text-lg group"
+                className="flex items-center gap-3 px-8 py-4 rounded-full border-2 border-[#1E3A8A]/40 bg-white text-[#1E3A8A] hover:border-[#1E3A8A]/70 hover:bg-slate-50 transition-all duration-200 font-medium text-lg group shadow-sm"
               >
-                <span className="w-9 h-9 rounded-full bg-surface-2 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                <span className="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-blue-100 transition-colors">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
@@ -121,10 +121,10 @@ export default function HeroSection() {
             </div>
 
             {/* Trust badges */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-text-muted text-sm pt-2">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[#334155] text-sm pt-2">
               {["Setup in 3-7 days", "No technical skills needed", "24/7 instant replies"].map((t) => (
                 <span key={t} className="flex items-center gap-1.5">
-                  <svg className="w-4 h-4 text-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-4 h-4 text-[#0891B2]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   {t}
@@ -184,28 +184,28 @@ export default function HeroSection() {
                       }}
                     >
                       <div style={{ color: p.color }}>{p.icon}</div>
-                      <span className="text-text-primary text-xs font-bold text-center">{p.name}</span>
-                      <span className="text-text-faint text-[10px] text-center leading-tight">{p.stat}</span>
+                      <span className="text-[#1E1B4B] text-xs font-bold text-center">{p.name}</span>
+                      <span className="text-[#94A3B8] text-[10px] text-center leading-tight">{p.stat}</span>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Live indicator */}
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-cyan/20 bg-cyan/5">
-                <span className="w-2 h-2 rounded-full bg-cyan animate-pulse" />
-                <span className="text-cyan text-xs font-semibold">System is responding now — instantly</span>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-[#0891B2]/20 bg-[#0891B2]/5">
+                <span className="w-2 h-2 rounded-full bg-[#0891B2] animate-pulse" />
+                <span className="text-[#0891B2] text-xs font-semibold">System is responding now — instantly</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Stats Row */}
-        <div className="mt-20 pt-10 border-t border-border grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div className="mt-20 pt-10 border-t border-slate-200 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {stats.map((s) => (
             <div key={s.label} className="space-y-1">
               <p className={`text-3xl font-black ${s.color}`}>{s.value}</p>
-              <p className="text-text-muted text-sm">{s.label}</p>
+              <p className="text-[#334155] text-sm">{s.label}</p>
             </div>
           ))}
         </div>

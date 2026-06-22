@@ -16,7 +16,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-night/80 border-b border-border/50">
+    <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[#F8FAFC]/80 border-b border-slate-200/70 shadow-sm">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -30,7 +30,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-text-muted hover:text-text-primary transition-colors duration-200"
+                className="text-sm text-[#334155] hover:text-[#1E1B4B] hover:text-purple transition-colors duration-200"
               >
                 {link.label}
               </a>
@@ -41,7 +41,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <Link
               href="/en"
-              className="px-3 py-1.5 text-xs font-semibold rounded-full border border-border text-text-muted hover:text-text-primary hover:border-border-light transition-all"
+              className="px-3 py-1.5 text-xs font-semibold rounded-full border border-slate-300 text-[#334155] hover:text-[#1E1B4B] hover:border-slate-400 transition-all"
             >
               EN
             </Link>
@@ -56,7 +56,7 @@ export default function Navbar() {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface transition-colors"
+            className="md:hidden p-2 rounded-lg text-[#334155] hover:text-[#1E1B4B] hover:bg-slate-100 transition-colors"
             aria-label="القائمة"
           >
             {menuOpen ? (
@@ -73,14 +73,14 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden py-4 border-t border-border/50 animate-fade-in-up">
+          <div className="md:hidden py-4 border-t border-slate-200/70 animate-fade-in-up bg-[#F8FAFC]">
             <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="px-4 py-3 rounded-lg text-text-muted hover:text-text-primary hover:bg-surface transition-colors text-sm"
+                  className="px-4 py-3 rounded-lg text-[#334155] hover:text-[#1E1B4B] hover:bg-slate-100 transition-colors text-sm"
                 >
                   {link.label}
                 </a>
@@ -88,7 +88,7 @@ export default function Navbar() {
               <div className="pt-3 px-4 flex gap-2">
                 <Link
                   href="/en"
-                  className="px-4 py-2 rounded-full border border-border text-text-muted text-sm"
+                  className="px-4 py-2 rounded-full border border-slate-300 text-[#334155] text-sm"
                 >
                   English
                 </Link>

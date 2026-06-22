@@ -1,4 +1,4 @@
-const steps = [
+﻿const steps = [
   {
     number: "01",
     icon: (
@@ -47,17 +47,17 @@ const steps = [
 
 export default function HowWeWork() {
   return (
-    <section id="how" className="py-24 bg-night">
+    <section id="how" className="py-24 bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <p className="text-cyan text-sm font-semibold uppercase tracking-widest mb-3">
+          <p className="text-[#0891B2] text-sm font-semibold uppercase tracking-widest mb-3">
             آلية العمل
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1E1B4B] mb-4">
             كيف نعمل معاً؟
           </h2>
-          <p className="text-text-muted text-lg max-w-2xl mx-auto">
+          <p className="text-[#334155] text-lg max-w-2xl mx-auto">
             عملية بسيطة وواضحة — لا تقنية معقدة، لا أكواد، لا متاعب.
           </p>
         </div>
@@ -76,19 +76,19 @@ export default function HowWeWork() {
                 )}
 
                 {/* Step circle */}
-                <div className="relative z-10 w-[104px] h-[104px] rounded-full bg-surface-2 border-2 border-border group-hover:border-primary/60 transition-all duration-300 flex flex-col items-center justify-center mb-6 group-hover:shadow-brand-sm">
-                  <span className="text-cyan text-xs font-black tracking-widest mb-1" dir="ltr">
+                <div className="relative z-10 w-[104px] h-[104px] rounded-full bg-[#F1F5F9] border-2 border-slate-200 group-hover:border-[#2563EB]/60 transition-all duration-300 flex flex-col items-center justify-center mb-6 group-hover:shadow-brand-sm">
+                  <span className="text-[#0891B2] text-xs font-black tracking-widest mb-1" dir="ltr">
                     {step.number}
                   </span>
-                  <div className="text-cyan/80 group-hover:text-cyan transition-colors">
+                  <div className="text-[#0891B2]/80 group-hover:text-[#0891B2] transition-colors">
                     {step.icon}
                   </div>
                 </div>
 
                 {/* Step content */}
                 <div className="space-y-2 px-2">
-                  <h3 className="text-lg font-bold text-text-primary">{step.title}</h3>
-                  <p className="text-text-muted text-sm leading-relaxed">{step.description}</p>
+                  <h3 className="text-lg font-bold text-[#1E1B4B]">{step.title}</h3>
+                  <p className="text-[#334155] text-sm leading-relaxed">{step.description}</p>
                 </div>
               </div>
             ))}
@@ -96,16 +96,16 @@ export default function HowWeWork() {
         </div>
 
         {/* Timeline Banner */}
-        <div className="mt-16 rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-start">
-          <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-cyan shrink-0 text-2xl">
+        <div className="mt-16 rounded-2xl border border-[#2563EB]/20 bg-[#2563EB]/5 p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-start">
+          <div className="w-14 h-14 rounded-full bg-[#2563EB]/10 border border-[#2563EB]/20 flex items-center justify-center text-[#0891B2] shrink-0 text-2xl">
             ⏱
           </div>
           <div>
-            <h3 className="text-xl font-black text-text-primary mb-1">
+            <h3 className="text-xl font-black text-[#1E1B4B] mb-1">
               الإعداد الكامل في{" "}
-              <span className="text-cyan" dir="ltr">7 - 3</span> أيام عمل فقط
+              <span className="text-[#0891B2]" dir="ltr">7 - 3</span> أيام عمل فقط
             </h3>
-            <p className="text-text-muted text-sm">
+            <p className="text-[#334155] text-sm">
               من اليوم الأول للتواصل معنا حتى يبدأ النظام بالرد على عملاءك — أسبوع واحد.
             </p>
           </div>

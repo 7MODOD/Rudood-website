@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 
 interface LogoProps {
   size?: number;
@@ -19,7 +19,7 @@ export default function Logo({ size = 36, showText = true, textClass = "", lang 
         className="object-contain shrink-0"
       />
       {showText && (
-        <span className={`font-black tracking-tight ${textClass || "text-xl text-text-primary"}`}>
+        <span className={`font-black tracking-tight ${textClass || "text-xl text-[#1E1B4B]"}`}>
           {name}
         </span>
       )}

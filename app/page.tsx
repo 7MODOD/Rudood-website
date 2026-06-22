@@ -12,7 +12,7 @@ import LiveChat from "@/components/LiveChat";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-night text-text-primary overflow-x-hidden">
+    <main className="min-h-screen bg-[#F8FAFC] text-[#1E1B4B] overflow-x-hidden">
       <Navbar />
       <HeroSection />
       <PlatformsSection />

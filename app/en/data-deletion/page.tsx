@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -166,9 +166,9 @@ To exercise these rights, contact us at info@rudood.com`,
           className="p-5 rounded-xl border mb-10 flex items-center gap-4"
           style={{ background: "rgba(6,182,212,0.07)", borderColor: "rgba(6,182,212,0.2)" }}
         >
-          <Clock size={24} className="text-cyan-400 flex-shrink-0" />
+          <Clock size={24} className="text-[#0891B2]-400 flex-shrink-0" />
           <p className="text-slate-300 text-sm">
-            <strong className="text-white">Timeline:</strong> Verification requests are processed within <strong className="text-cyan-400">48 business hours</strong>, and full deletion is completed within <strong className="text-cyan-400">30 days</strong> of request confirmation.
+            <strong className="text-white">Timeline:</strong> Verification requests are processed within <strong className="text-[#0891B2]-400">48 business hours</strong>, and full deletion is completed within <strong className="text-[#0891B2]-400">30 days</strong> of request confirmation.
           </p>
         </div>
 
