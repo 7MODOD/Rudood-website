@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Logo from "./Logo";
+import Logo from "../Logo";
 
 const navLinks = [
   { label: "لماذا ردود؟", href: "#why" },
