@@ -3,6 +3,10 @@ import type { FaqItem } from "./faq-data";
 // English FAQ — shared between the EN FAQ accordion and FAQPage structured data.
 export const faqs: FaqItem[] = [
   {
+    q: "If every plan includes unlimited conversations and every platform, what is the difference between them?",
+    a: "The difference is the bot's intelligence level and the tasks it performs for you. The Basic plan answers FAQs using your business data. The Advanced plan acts like an integrated sales employee: it can log orders and customer data directly in Google Sheets, read images, and analyze voice messages. The Enterprise plan is designed for deep API integration with your internal systems.",
+  },
+  {
     q: "Does the AI make mistakes in replies?",
     a: "The system is trained specifically on your business data using some of the most accurate models in the world. Errors are very rare, and when it encounters a question outside its training scope, it notifies you rather than making up an answer. We also continuously monitor performance and improve the training.",
   },

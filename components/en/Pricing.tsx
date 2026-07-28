@@ -1,250 +1,189 @@
-﻿import { Building2 } from "lucide-react";
-
 type PricingTier = {
   name: string;
+  agent: string;
   subtitle: string;
-  price: string;
-  period: string;
-  messages: string;
+  price?: string;
+  period?: string;
+  customPrice?: string;
   setup: string;
   features: string[];
   cta: string;
   isPopular?: boolean;
-  priceColor?: string;
+  isEnterprise?: boolean;
 };
 
 const tiers: PricingTier[] = [
   {
-    name: "Basic",
-    subtitle: "For solo operators & single locations",
-    price: "290",
+    name: "Basic Plan",
+    agent: "Informational Agent",
+    subtitle: "For businesses that need smart, instant answers to customer questions and inquiries.",
+    price: "₪290",
     period: "/ month",
-    messages: "Unlimited conversations · no counter",
-    setup: "Setup fee: ₪400 one-time",
+    setup: "Setup fee: ₪400 (one time)",
     features: [
-      "Smart replies on FAQs & business info",
-      "Connect all 3 platforms (WhatsApp + Instagram + Messenger)",
-      "Basic order & inquiry logging",
-      "Multi-language replies (Arabic / English / Hebrew)",
-      "Smart handoff to a human agent when needed",
-      "1 human seat for handoff & follow-up",
-      "Video & PDF training (with ready templates)",
-      "Standard technical support",
+      "Unlimited conversations with no message cap.",
+      "Every communication channel enabled: WhatsApp, Instagram, Messenger, and your website.",
+      "Smart, automatic answers to FAQs and service or product questions using your business data.",
+      "Multilingual replies in Arabic, English, and Hebrew.",
+      "Smart, seamless handoff to a human employee when needed.",
+      "One human user seat for handoff and follow-up.",
+      "Standard technical support.",
     ],
     cta: "Start with Basic",
   },
   {
-    name: "Advanced",
-    subtitle: "For stores running orders & payments",
-    price: "790",
+    name: "Advanced Plan",
+    agent: "Procedural Agent",
+    subtitle: "For stores that need workflow automation, data collection, and order intake.",
+    price: "₪790",
     period: "/ month",
-    messages: "Unlimited conversations · no counter",
-    setup: "Setup fee: ₪700 one-time",
+    setup: "Setup fee: ₪700 (one time)",
     features: [
-      "Everything in Basic",
-      "Connect 4 channels (WhatsApp + Messenger + Instagram + website)",
-      "Advanced order logging via Google Sheets",
-      "Order tracking by product code or order number",
-      "Image & payment receipt recognition (Vision AI)",
-      "Voice interaction (receive, analyze & reply with voice)",
-      "Live human agent handoff",
-      "Up to 3 human seats (extra seat ₪50/month)",
-      "2 training sessions with personal follow-up",
-      "24/7 dedicated support",
+      "Everything in the Basic plan, plus:",
+      "Advanced customer and order logging through a direct Google Sheets connection.",
+      "Customer order tracking by product code or order number.",
+      "Image reading and analysis with Vision AI.",
+      "Voice interaction, including receiving and analyzing voice messages.",
+      "Up to 3 human users, with additional seats available for ₪50/month.",
+      "Continuous 24/7 technical support with two training sessions for your team.",
     ],
     cta: "Start with Advanced",
     isPopular: true,
-    priceColor: "text-gradient-brand",
+  },
+  {
+    name: "Enterprise Plan",
+    agent: "Integrational Agent / B2B",
+    subtitle: "For companies with complex operations that need complete software integration with internal systems.",
+    customPrice: "Custom pricing based on project requirements.",
+    setup: "Setup fee: custom pricing based on project requirements.",
+    features: [
+      "Everything in the Advanced plan, plus:",
+      "Custom API and Webhooks integration with internal systems such as inventory, delivery, or CRM platforms.",
+      "Complex Custom Workflows that execute live operational tasks.",
+      "Smart conversation routing across sales, complaints, and support teams.",
+      "Bot persona engineering that closely reflects your company culture.",
+      "Unlimited human users.",
+      "A service-level agreement (SLA) and a dedicated account manager for your project.",
+    ],
+    cta: "Contact Us",
+    isEnterprise: true,
   },
 ];
 
-const enterpriseFeatures: string[] = [
-  "Everything in Advanced",
-  "Smart conversation routing (sales / complaints / support)",
-  "Unlimited human seats",
-  "Custom API integration with your internal systems",
-  "Complex workflow automation",
-  "Persona engineering matching your company culture",
-  "SLA with 24/7 dedicated support",
-  "Comprehensive training for your customer service team",
-];
-
-function CheckIcon({ color = "text-[#0891B2]" }: { color?: string }) {
+function CheckIcon({ enterprise = false }: { enterprise?: boolean }) {
   return (
-    <svg className={`w-4 h-4 ${color} shrink-0`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+    <svg
+      className={`mt-0.5 h-4 w-4 shrink-0 ${enterprise ? "text-amber-500" : "text-[#0891B2]"}`}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      aria-hidden="true"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
     </svg>
   );
 }
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 bg-[#F8FAFC]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <p className="text-[#0891B2] text-sm font-semibold uppercase tracking-widest mb-3">
+    <section id="pricing" className="bg-[#F8FAFC] py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-14 text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#0891B2]">
             Pricing Plans
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#1E1B4B] mb-4">
-            An investment that pays for itself
+          <h2 className="mb-4 text-3xl font-black text-[#1E1B4B] sm:text-4xl lg:text-5xl">
+            Choose the right level of automation
           </h2>
-          <p className="text-[#334155] text-lg max-w-2xl mx-auto">
-            Choose the plan that fits your business. All plans include unlimited conversations and real AI replies.
+          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-[#334155]">
+            Every plan includes unlimited conversations and every communication channel. The difference is the
+            agent&apos;s intelligence level and the tasks it performs.
           </p>
         </div>
 
-        {/* Pricing Cards — 2 self-serve tiers */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-3">
           {tiers.map((tier) => (
-            <div
+            <article
               key={tier.name}
-              className={`relative rounded-3xl p-7 flex flex-col gap-6 transition-all duration-300 ${
+              className={`relative flex h-full flex-col rounded-3xl p-7 transition-all duration-300 ${
                 tier.isPopular
-                  ? "bg-white border-2 border-[#7C3AED]/50 md:scale-[1.03] shadow-brand"
-                  : "bg-white border border-slate-200 hover:border-[#7C3AED]/30 shadow-sm hover:shadow-md"
+                  ? "border-2 border-[#7C3AED]/50 bg-white shadow-brand lg:-translate-y-2"
+                  : tier.isEnterprise
+                    ? "border border-amber-300/70 bg-amber-50/70 shadow-sm hover:shadow-md"
+                    : "border border-slate-200 bg-white shadow-sm hover:border-[#7C3AED]/30 hover:shadow-md"
               }`}
             >
-              {/* Popular badge */}
               {tier.isPopular && (
                 <div className="absolute -top-4 inset-x-0 flex justify-center">
-                  <div
-                    className="px-4 py-1.5 rounded-full text-white text-xs font-black tracking-wide animate-shimmer"
+                  <span
+                    className="animate-shimmer rounded-full px-4 py-1.5 text-xs font-black tracking-wide text-white"
                     style={{
                       background: "linear-gradient(90deg, #2563EB, #7C3AED, #06B6D4, #2563EB)",
                       backgroundSize: "200% auto",
                     }}
                   >
                     ⭐ Most Popular
-                  </div>
+                  </span>
                 </div>
               )}
 
-              {/* Tier header */}
-              <div>
-                <h3 className="text-xl font-black text-[#1E1B4B] mb-1">{tier.name}</h3>
-                <p className="text-[#334155] text-sm">{tier.subtitle}</p>
+              <div className="mb-6">
+                <span
+                  className={`mb-3 inline-flex rounded-full border px-3 py-1 text-xs font-bold ${
+                    tier.isEnterprise
+                      ? "border-amber-300/70 bg-amber-100/80 text-amber-700"
+                      : "border-[#0891B2]/20 bg-[#0891B2]/5 text-[#0891B2]"
+                  }`}
+                >
+                  {tier.agent}
+                </span>
+                <h3 className="mb-2 text-2xl font-black text-[#1E1B4B]">{tier.name}</h3>
+                <p className="min-h-[72px] text-sm leading-relaxed text-[#334155]">{tier.subtitle}</p>
               </div>
 
-              {/* Price */}
-              <div>
-                <div className="flex items-end gap-1">
-                  <span className="text-[#334155] text-lg font-medium">₪</span>
-                  <span
-                    className={`text-5xl font-black leading-none ${tier.priceColor || "text-[#1E1B4B]"}`}
-                  >
-                    {tier.price}
-                  </span>
-                </div>
-                <p className="text-[#334155] text-sm mt-1">
-                  {tier.period} · {tier.messages}
-                </p>
-                <p className="text-[#94A3B8] text-xs mt-2">{tier.setup}</p>
+              <div className="mb-6 border-y border-slate-200 py-5">
+                {tier.customPrice ? (
+                  <p className="text-2xl font-black leading-snug text-amber-600">{tier.customPrice}</p>
+                ) : (
+                  <div className="flex flex-wrap items-end gap-2">
+                    <span className="text-4xl font-black leading-none text-[#1E1B4B]">{tier.price}</span>
+                    <span className="text-sm font-medium text-[#334155]">{tier.period}</span>
+                  </div>
+                )}
+                <p className="mt-3 text-xs leading-relaxed text-[#64748B]">{tier.setup}</p>
               </div>
 
-              {/* CTA */}
+              <div className="mb-7 flex-1 space-y-3">
+                {tier.features.map((feature) => (
+                  <div key={feature} className="flex items-start gap-3">
+                    <CheckIcon enterprise={tier.isEnterprise} />
+                    <span className="text-sm leading-relaxed text-[#334155]">{feature}</span>
+                  </div>
+                ))}
+              </div>
+
               <a
-                href="#contact"
-                className={`block text-center px-6 py-3.5 rounded-full font-bold text-base transition-all duration-200 ${
+                href={tier.isEnterprise ? "https://wa.me/970597876548" : "#contact"}
+                className={`block rounded-full px-6 py-3.5 text-center text-base font-bold transition-all duration-200 ${
                   tier.isPopular
-                    ? "bg-brand-gradient text-white hover:opacity-90 shadow-brand-sm"
-                    : "border border-slate-200 text-[#334155] hover:text-[#1E1B4B] hover:border-[#2563EB]/40"
+                    ? "bg-brand-gradient text-white shadow-brand-sm hover:opacity-90"
+                    : tier.isEnterprise
+                      ? "bg-amber-500 text-white hover:bg-amber-400"
+                      : "border border-slate-200 text-[#334155] hover:border-[#2563EB]/40 hover:text-[#1E1B4B]"
                 }`}
               >
                 {tier.cta}
               </a>
-
-              {/* Features */}
-              <div className="space-y-3 pt-2 border-t border-slate-200">
-                {tier.features.map((f) => (
-                  <div key={f} className="flex items-center gap-3">
-                    <CheckIcon color="text-[#0891B2]" />
-                    <span className="text-[#334155] text-sm">{f}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            </article>
           ))}
         </div>
 
-        {/* Enterprise — Premium tier */}
-        <div className="mt-16">
-          <div className="relative rounded-3xl border border-amber-300/60 bg-amber-50/60 p-8 lg:p-12 overflow-hidden shadow-sm">
-            {/* Subtle amber glow accent */}
-            <div
-              className="absolute top-0 right-0 w-80 h-80 rounded-full opacity-10 blur-3xl pointer-events-none"
-              style={{ background: "radial-gradient(circle, #F59E0B, transparent 70%)" }}
-            />
-
-            <div className="relative grid lg:grid-cols-5 gap-10 items-center">
-              {/* Left: Info & Pricing — 2 cols */}
-              <div className="lg:col-span-2 space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/20">
-                  <Building2 className="w-4 h-4 text-amber-400" />
-                  <span className="text-amber-400 text-xs font-bold tracking-wide">
-                    Custom B2B Solution
-                  </span>
-                </div>
-
-                <div>
-                  <h3 className="text-3xl lg:text-4xl font-black text-[#1E1B4B] mb-2">
-                    Enterprise
-                  </h3>
-                  <p className="text-[#334155] text-base leading-relaxed">
-                    Built for companies with complex operations and specialized internal systems.
-                    Deep integration, advanced automation, and enterprise-grade support.
-                  </p>
-                </div>
-
-                {/* Price */}
-                <div>
-                  <p className="text-[#94A3B8] text-xs uppercase tracking-widest mb-2">
-                    Custom pricing
-                  </p>
-                  <div className="flex items-end gap-2">
-                    <span className="text-4xl lg:text-5xl font-black leading-none text-amber-400">
-                      Per project
-                    </span>
-                  </div>
-                  <p className="text-[#94A3B8] text-sm mt-3">
-                    Quote based on branches, headcount, and internal systems involved.
-                  </p>
-                </div>
-
-                {/* CTA */}
-                <a
-                  href="https://wa.me/970597876548"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-bold text-base bg-amber-500 text-white hover:bg-amber-400 transition-colors duration-200"
-                >
-                  Contact Us
-                </a>
-              </div>
-
-              {/* Right: Features — 3 cols */}
-              <div className="lg:col-span-3">
-                <p className="text-[#94A3B8] text-xs uppercase tracking-widest mb-5">
-                  Exclusive enterprise features
-                </p>
-                <div className="grid sm:grid-cols-2 gap-x-6 gap-y-4">
-                  {enterpriseFeatures.map((f) => (
-                    <div key={f} className="flex items-start gap-3">
-                      <CheckIcon color="text-amber-400" />
-                      <span className="text-[#334155] text-sm leading-relaxed">{f}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom note */}
-        <div className="text-center mt-12 space-y-2">
-          <p className="text-[#94A3B8] text-sm">
+        <div className="mt-12 space-y-2 text-center">
+          <p className="text-sm text-[#64748B]">
             All prices in ILS · Monthly prepaid billing · Cancel anytime
           </p>
-          <p className="text-[#94A3B8] text-xs">
-            WhatsApp message fees (Meta charges) are billed directly to the customer — Rudood takes no commission on them.
+          <p className="text-xs text-[#94A3B8]">
+            WhatsApp message fees (Meta charges) are billed directly to the customer — Rudood takes no commission.
           </p>
         </div>
       </div>

@@ -30,7 +30,7 @@
     ),
     title: "Technical integration",
     description:
-      "We connect the system to your WhatsApp Business account and platforms. We handle all the technical side — you do nothing.",
+      "We connect the system to your accounts across WhatsApp, Instagram, and Messenger. Depending on your plan, we also connect the bot to Google Sheets or your internal systems through an API to automate your operations end to end. We handle the entire technical setup.",
   },
   {
     number: "04",

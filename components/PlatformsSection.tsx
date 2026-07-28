@@ -62,6 +62,10 @@ export default function PlatformsSection() {
           <p className="text-[#334155] text-lg max-w-2xl mx-auto">
             منصة واحدة تربط كل قنوات التواصل مع عملاءك وتجعل الردود الذكية في كل مكان.
           </p>
+          <p className="mt-6 text-[#334155] text-base sm:text-lg leading-relaxed max-w-4xl mx-auto rounded-2xl border border-[#0891B2]/20 bg-white px-5 py-4 shadow-sm">
+            لا مزيد من الدفع لكل قناة على حدة! في ردود، جميع الباقات تشمل ربطاً مجانياً وموحداً لكل قنواتك
+            (واتساب، إنستغرام، ماسنجر، موقعك الإلكتروني). العميل يراسل من أي مكان، والذكاء الاصطناعي يرد من مكان واحد.
+          </p>
         </div>
 
         {/* Platform Cards */}

@@ -59,6 +59,11 @@ export default function PlatformsSection() {
           <p className="text-[#334155] text-lg max-w-2xl mx-auto">
             One platform that connects all your customer channels and puts smart replies everywhere.
           </p>
+          <p className="mt-6 text-[#334155] text-base sm:text-lg leading-relaxed max-w-4xl mx-auto rounded-2xl border border-[#0891B2]/20 bg-white px-5 py-4 shadow-sm">
+            No more paying for each channel separately. Every Rudood plan includes free, unified connections
+            across WhatsApp, Instagram, Messenger, and your website. Customers can message from anywhere while
+            the AI manages every reply from one place.
+          </p>
         </div>
 
         {/* Platform Cards */}
